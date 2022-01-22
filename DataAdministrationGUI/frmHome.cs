@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DataAdministrationGUI
 {
-	public partial class Form1 : Form
+	public partial class frmHome : Form
 	{
-		public Form1()
+		public frmHome()
 		{
 			InitializeComponent();
 		}
