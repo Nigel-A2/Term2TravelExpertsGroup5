@@ -29,12 +29,33 @@ namespace DataAdministrationGUI
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.btnCancelSupplier = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// btnCancelSupplier
+			// 
+			this.btnCancelSupplier.Location = new System.Drawing.Point(481, 330);
+			this.btnCancelSupplier.Name = "btnCancelSupplier";
+			this.btnCancelSupplier.Size = new System.Drawing.Size(185, 38);
+			this.btnCancelSupplier.TabIndex = 0;
+			this.btnCancelSupplier.Text = "Cancel";
+			this.btnCancelSupplier.UseVisualStyleBackColor = true;
+			this.btnCancelSupplier.Click += new System.EventHandler(this.btnCancelSupplier_Click);
+			// 
+			// frmAddModifySupplier
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btnCancelSupplier);
+			this.Name = "frmAddModifySupplier";
 			this.Text = "frmAddModifySupplier";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
+
+		private System.Windows.Forms.Button btnCancelSupplier;
 	}
 }

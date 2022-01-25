@@ -16,5 +16,17 @@ namespace DataAdministrationGUI
 		{
 			InitializeComponent();
 		}
+
+		// closes the form, feel free to copy to the other forms
+		private void btnHome_Click(object sender, EventArgs e)
+		{
+			this.DialogResult = DialogResult.OK; 
+		}
+
+		private void btnAddPackage_Click(object sender, EventArgs e)
+		{
+			var addModifyPackageform = new frmAddModifyPackage();
+			DialogResult result = addModifyPackageform.ShowDialog();
+		}
 	}
 }

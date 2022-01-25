@@ -16,5 +16,16 @@ namespace DataAdministrationGUI
 		{
 			InitializeComponent();
 		}
+
+		private void btnAddSupplier_Click(object sender, EventArgs e)
+		{
+			var addModifySupplierform = new frmAddModifySupplier();
+			DialogResult result = addModifySupplierform.ShowDialog();
+		}
+
+		private void btnSuppliersToHome_Click(object sender, EventArgs e)
+		{
+			this.DialogResult = DialogResult.OK;
+		}
 	}
 }

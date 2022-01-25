@@ -16,5 +16,10 @@ namespace DataAdministrationGUI
 		{
 			InitializeComponent();
 		}
+
+		private void btnCancelSupplier_Click(object sender, EventArgs e)
+		{
+			this.DialogResult = DialogResult.OK;
+		}
 	}
 }
