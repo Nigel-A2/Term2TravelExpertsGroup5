@@ -77,6 +77,7 @@ namespace DataAdministrationGUI
             this.btnModifyProduct.TabIndex = 3;
             this.btnModifyProduct.Text = "Modify";
             this.btnModifyProduct.UseVisualStyleBackColor = true;
+            this.btnModifyProduct.Click += new System.EventHandler(this.btnModifyProduct_Click);
             // 
             // btnAddProduct
             // 
@@ -87,6 +88,7 @@ namespace DataAdministrationGUI
             this.btnAddProduct.TabIndex = 4;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // label1
             // 

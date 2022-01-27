@@ -76,6 +76,40 @@ namespace DataAdministrationGUI
 			}
 		}
 
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+			frmAddModifyProduct addForm = CreateAddModifyForm(true, null);
+
+			DialogResult result = addForm.ShowDialog();
+			if (result == DialogResult.OK) // second form has customer with new data
+			{
+				AddProduct(addForm.product);
+			}
+		}
+
+		private void AddProduct(Product product)
+		{
+			try
+			{
+				using (TravelExpertsContext db = new TravelExpertsContext())
+				{
+					db.Products.Add(product);
+					db.SaveChanges();
+				}
+				products.Add(product);
+				FillProductsListBox();
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show("Error while adding new product: " + exception.Message, exception.GetType().ToString());
+			}
+		}
+
+		private void btnModifyProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
 		private void FillProductsListBox()
 		{
 			lbxProducts.Items.Clear();
@@ -84,5 +118,13 @@ namespace DataAdministrationGUI
 				lbxProducts.Items.Add(p.GetDisplayText("\t"));
 			}
 		}
-    }
+
+		private frmAddModifyProduct CreateAddModifyForm(bool isAdd, Product selectedProduct)
+		{
+			frmAddModifyProduct form = new frmAddModifyProduct();
+			form.isAdd = isAdd;
+			form.product = selectedProduct;
+			return form;
+		}
+	}
 }
