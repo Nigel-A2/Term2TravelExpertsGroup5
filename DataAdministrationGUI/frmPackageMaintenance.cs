@@ -36,6 +36,7 @@ namespace DataAdministrationGUI
 		private void btnAddPackage_Click(object sender, EventArgs e)
 		{
 			var addModifyPackageform = new frmAddModifyPackage();
+			addModifyPackageform.isAdd = true;
 			DialogResult result = addModifyPackageform.ShowDialog();
 		}
 
@@ -113,6 +114,18 @@ namespace DataAdministrationGUI
 			// agency commission > base price
 			// package end date must be later than start date
 			// package name and description must not be null
+		}
+
+
+		private void ModifyPackage()
+		{
+
+		}
+
+
+		private void DeletePackage()
+		{ 
+		
 		}
 	}
 }

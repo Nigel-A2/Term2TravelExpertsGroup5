@@ -13,6 +13,10 @@ namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyPackage : Form
 	{
+		// public data - main form needs access to it
+		public Models.Package CurrentPackage { get; set; }
+		public bool isAdd; // true - Add, false - Modify
+
 		public frmAddModifyPackage()
 		{
 			InitializeComponent();
