@@ -21,5 +21,10 @@ namespace DataAdministrationGUI
 		{
 			this.DialogResult = DialogResult.OK;
 		}
-	}
+
+        private void frmAddModifyProduct_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
