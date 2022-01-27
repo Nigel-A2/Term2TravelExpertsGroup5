@@ -126,6 +126,7 @@ namespace DataAdministrationGUI
 			this.txtPackageID.Name = "txtPackageID";
 			this.txtPackageID.Size = new System.Drawing.Size(116, 23);
 			this.txtPackageID.TabIndex = 8;
+			this.txtPackageID.Tag = "Package ID";
 			// 
 			// txtPkgName
 			// 
@@ -133,6 +134,7 @@ namespace DataAdministrationGUI
 			this.txtPkgName.Name = "txtPkgName";
 			this.txtPkgName.Size = new System.Drawing.Size(367, 23);
 			this.txtPkgName.TabIndex = 9;
+			this.txtPkgName.Tag = "Name";
 			// 
 			// txtPkgStartDate
 			// 
@@ -140,6 +142,7 @@ namespace DataAdministrationGUI
 			this.txtPkgStartDate.Name = "txtPkgStartDate";
 			this.txtPkgStartDate.Size = new System.Drawing.Size(259, 23);
 			this.txtPkgStartDate.TabIndex = 10;
+			this.txtPkgStartDate.Tag = "Start date";
 			// 
 			// txtPkgEndDate
 			// 
@@ -147,6 +150,7 @@ namespace DataAdministrationGUI
 			this.txtPkgEndDate.Name = "txtPkgEndDate";
 			this.txtPkgEndDate.Size = new System.Drawing.Size(259, 23);
 			this.txtPkgEndDate.TabIndex = 11;
+			this.txtPkgEndDate.Tag = "End date";
 			// 
 			// txtPkgDesc
 			// 
@@ -154,6 +158,7 @@ namespace DataAdministrationGUI
 			this.txtPkgDesc.Name = "txtPkgDesc";
 			this.txtPkgDesc.Size = new System.Drawing.Size(469, 23);
 			this.txtPkgDesc.TabIndex = 12;
+			this.txtPkgDesc.Tag = "Description";
 			// 
 			// txtPkgBasePrice
 			// 
@@ -161,6 +166,7 @@ namespace DataAdministrationGUI
 			this.txtPkgBasePrice.Name = "txtPkgBasePrice";
 			this.txtPkgBasePrice.Size = new System.Drawing.Size(116, 23);
 			this.txtPkgBasePrice.TabIndex = 13;
+			this.txtPkgBasePrice.Tag = "Base price";
 			// 
 			// txtPkgAgencyCommission
 			// 
@@ -168,6 +174,7 @@ namespace DataAdministrationGUI
 			this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
 			this.txtPkgAgencyCommission.Size = new System.Drawing.Size(116, 23);
 			this.txtPkgAgencyCommission.TabIndex = 14;
+			this.txtPkgAgencyCommission.Tag = "Agency comission";
 			// 
 			// btnPackageOK
 			// 

@@ -19,7 +19,7 @@ namespace DataAdministrationGUI
 	{
 		// class-level declarations
 		Package selectedPackage;
-		private TravelExpertsContext context = new TravelExpertsContext();
+		private TravelExpertsContext packageContext = new TravelExpertsContext();
 
 		public frmPackageMaintenance()
 		{
@@ -37,7 +37,30 @@ namespace DataAdministrationGUI
 		{
 			var addModifyPackageform = new frmAddModifyPackage();
 			addModifyPackageform.isAdd = true;
+			addModifyPackageform.CurrentPackage = null;
 			DialogResult result = addModifyPackageform.ShowDialog();
+
+			if (result == DialogResult.OK)
+			{
+				selectedPackage = addModifyPackageform.CurrentPackage; // add package to database
+				try
+				{
+					using (TravelExpertsContext db = new TravelExpertsContext())
+					{
+						db.Products.Add(selectedPackage); // error CS1503
+						db.SaveChanges();
+						DisplayPackages();
+					}
+				}
+				catch (DbUpdateException ex)
+				{
+					this.HandleDbUpdateException(ex);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Error while adding a product: " + ex.Message, ex.GetType().ToString());
+				}
+			}
 		}
 
 		// load data into the data grid view
@@ -107,25 +130,135 @@ namespace DataAdministrationGUI
 			{
 				// gets data from the row that the user pressed modify or delete on
 				string cellSelected = dgvPackagesDisplay.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
-				selectedPackage = context.Packages.Find(cellSelected);
+				selectedPackage = packageContext.Packages.Find(cellSelected);
 			}
 
 			// if statements for the modify and delete buttons. We need to make a validator for the following requirements:
 			// agency commission > base price
-			// package end date must be later than start date
+			// package end date must be later than start date (
 			// package name and description must not be null
+			if (e.ColumnIndex == PackagesModifyIndex)
+			{
+				ModifyPackage();
+			}
+			else if (e.ColumnIndex == PackagesDeleteIndex)
+			{
+				DeletePackage();
+			}
 		}
 
 
 		private void ModifyPackage()
 		{
+			var addModifyPackageform = new frmAddModifyPackage();
+			{
+				addModifyPackageform.isAdd = false;
+				addModifyPackageform.CurrentPackage = selectedPackage;
+			}
+			DialogResult result = addModifyPackageform.ShowDialog();
 
+			if (result == DialogResult.OK)
+			{
+				try
+				{
+					selectedPackage = addModifyPackageform.CurrentPackage;
+					packageContext.SaveChanges();
+					DisplayPackages();
+				}
+				catch (DbUpdateConcurrencyException ex)
+				{
+					HandleConcurrencyError(ex);
+				}
+				catch (DbUpdateException ex)
+				{
+					HandleDatabaseError(ex);
+				}
+				catch (Exception ex)
+				{
+					HandleGeneralError(ex);
+				}
+			}
+		}
+
+		private void DeletePackage()
+		{
+			DialogResult result =
+				MessageBox.Show($"Delete {selectedPackage.PackageId.Trim()}?", // error CS1929
+				"Confirm Delete", MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question);
+			if (result == DialogResult.Yes)
+			{
+				try
+				{
+					packageContext.Products.Remove(selectedPackage); // error CS1503
+					packageContext.SaveChanges(true);
+					DisplayPackages();
+				}
+				catch (DbUpdateConcurrencyException ex)
+				{
+					HandleConcurrencyError(ex);
+				}
+				catch (DbUpdateException ex)
+				{
+					HandleDatabaseError(ex);
+				}
+				catch (Exception ex)
+				{
+					HandleGeneralError(ex);
+				}
+			}
 		}
 
 
-		private void DeletePackage()
-		{ 
-		
+			
+
+		private void HandleDbUpdateException(DbUpdateException ex) // problems with saving changes
+		{
+			// get the inner exception with potentially multiple errors
+			SqlException innerException = (SqlException)ex.InnerException;
+			string message = "";
+			foreach (SqlError err in innerException.Errors)
+			{
+				message += $"Error {err.Number}: {err.Message}\n";
+			}
+			MessageBox.Show(message, "Database error(s)");
+		}
+
+		// error handlers
+		private void HandleConcurrencyError(DbUpdateConcurrencyException ex)
+		{
+			ex.Entries.Single().Reload();
+
+			var state = packageContext.Entry(selectedPackage).State;
+			if (state == EntityState.Detached)
+			{
+				MessageBox.Show("Another user has deleted that product.",
+					"Concurrency Error");
+			}
+			else
+			{
+				string message = "Another user has updated that product.\n" +
+					"The current database values will be displayed.";
+				MessageBox.Show(message, "Concurrency Error");
+			}
+			this.DisplayPackages();
+		}
+
+		private void HandleDatabaseError(DbUpdateException ex)
+		{
+			string errorMessage = "";
+			var sqlException = (SqlException)ex.InnerException;
+			foreach (SqlError error in sqlException.Errors)
+			{
+				errorMessage += "ERROR CODE:  " + error.Number + " " +
+								error.Message + "\n";
+			}
+			MessageBox.Show(errorMessage);
+		}
+
+		private void HandleGeneralError(Exception ex)
+		{
+			MessageBox.Show(ex.Message, ex.GetType().ToString());
 		}
 	}
 }
