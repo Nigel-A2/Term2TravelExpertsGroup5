@@ -17,14 +17,15 @@ namespace DataAdministrationGUI
 			InitializeComponent();
 		}
 
-		private void btnCancelProduct_Click(object sender, EventArgs e)
+		private void btnAddProduct_Click(object sender, EventArgs e)
+		{
+			var addModifyProductform = new frmProductMaintenance();
+			DialogResult result = addModifyProductform.ShowDialog();
+		}
+
+		private void btnProductToHome_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.OK;
 		}
-
-        private void frmAddModifyProduct_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
+	}
 }
