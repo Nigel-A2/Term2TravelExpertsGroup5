@@ -1,4 +1,5 @@
-﻿using DataAdministrationGUI.Models;
+﻿using CustomerMaintenanceGUI;
+using DataAdministrationGUI.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,9 +48,8 @@ namespace DataAdministrationGUI
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (Validate())
+            if (ValidateProduct())
             {
-
                 if (isAdd)
                 {
                     product = new Product();
@@ -59,9 +59,9 @@ namespace DataAdministrationGUI
             }
         }
 
-        private bool Validate()
+        private bool ValidateProduct()
         {
-            return true;
+            return Validator.IsPresent(tbxProductName) && tbxProductName.TextLength <= Product.MAX_NAME_LENGTH;
         }
     }
 }

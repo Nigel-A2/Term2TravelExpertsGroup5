@@ -9,6 +9,8 @@ namespace DataAdministrationGUI.Models
     public partial class Product
     {
 
+        public static readonly int MAX_NAME_LENGTH = 50;
+
         public string GetDisplayText(string sep)
         {
             return ProductId + sep + ProdName;

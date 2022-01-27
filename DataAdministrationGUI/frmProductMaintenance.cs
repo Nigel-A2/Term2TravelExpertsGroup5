@@ -57,7 +57,6 @@ namespace DataAdministrationGUI
 			}
 		}
 
-
 		private void DeleteProduct(Product product)
 		{
 			try
@@ -81,7 +80,7 @@ namespace DataAdministrationGUI
 			frmAddModifyProduct addForm = CreateAddModifyForm(true, null);
 
 			DialogResult result = addForm.ShowDialog();
-			if (result == DialogResult.OK) // second form has customer with new data
+			if (result == DialogResult.OK)
 			{
 				AddProduct(addForm.product);
 			}
@@ -107,8 +106,48 @@ namespace DataAdministrationGUI
 
 		private void btnModifyProduct_Click(object sender, EventArgs e)
         {
+			int selectedIndex = lbxProducts.SelectedIndex;
+			if (selectedIndex != -1)
+			{
+				Product product = (Product)products[selectedIndex];
+				frmAddModifyProduct modifyForm = CreateAddModifyForm(false, product);
 
-        }
+				DialogResult result = modifyForm.ShowDialog();
+				if (result == DialogResult.OK)
+				{
+					ModifyProduct(modifyForm.product);
+				}
+			}
+			else
+			{
+				MessageBox.Show("You need to select a product!", "Modify Aborted");
+			}
+		}
+
+		private void ModifyProduct(Product updatedProduct)
+		{
+			try
+			{
+				using (TravelExpertsContext db = new TravelExpertsContext())
+				{
+					Product productToUpdate = db.Products.Find(updatedProduct.ProductId);
+					productToUpdate.ProdName = updatedProduct.ProdName;
+					db.SaveChanges();
+				}
+				UpdateProductsList(updatedProduct);
+				FillProductsListBox();
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show("Error while modifying product: " + exception.Message, exception.GetType().ToString());
+			}
+		}
+
+		private void UpdateProductsList(Product updatedProduct)
+		{
+			Product productToUpdate = products.Find(p => p.ProductId.Equals(updatedProduct.ProductId));
+			productToUpdate.ProdName = updatedProduct.ProdName;
+		}
 
 		private void FillProductsListBox()
 		{
