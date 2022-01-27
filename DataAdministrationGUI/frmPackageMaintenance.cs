@@ -83,7 +83,6 @@ namespace DataAdministrationGUI
 				// format the columns
 				dgvPackagesDisplay.EnableHeadersVisualStyles = false;
 				dgvPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-				dgvPackagesDisplay.Columns[dgvPackagesDisplay.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // last column fills the remaining width
 				dgvPackagesDisplay.Columns[0].HeaderText = "Package ID:";
 				dgvPackagesDisplay.Columns[1].HeaderText = "Name:";
 				dgvPackagesDisplay.Columns[2].HeaderText = "Start Date:";
@@ -95,6 +94,25 @@ namespace DataAdministrationGUI
 				// format alternating rows
 				dgvPackagesDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
 			} // db is recycled
+		}
+
+		// modify and delete buttons
+		private void dgvPackagesDisplay_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			const int PackagesModifyIndex = 7;
+			const int PackagesDeleteIndex = 8;
+
+			if (e.ColumnIndex == PackagesModifyIndex || e.ColumnIndex == PackagesDeleteIndex)
+			{
+				// gets data from the row that the user pressed modify or delete on
+				string cellSelected = dgvPackagesDisplay.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
+				selectedPackage = context.Packages.Find(cellSelected);
+			}
+
+			// if statements for the modify and delete buttons. We need to make a validator for the following requirements:
+			// agency commission > base price
+			// package end date must be later than start date
+			// package name and description must not be null
 		}
 	}
 }

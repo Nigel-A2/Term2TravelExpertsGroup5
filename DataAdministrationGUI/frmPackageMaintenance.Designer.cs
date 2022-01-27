@@ -63,6 +63,7 @@ namespace DataAdministrationGUI
 			this.dgvPackagesDisplay.RowTemplate.Height = 25;
 			this.dgvPackagesDisplay.Size = new System.Drawing.Size(645, 243);
 			this.dgvPackagesDisplay.TabIndex = 2;
+			this.dgvPackagesDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackagesDisplay_CellClick);
 			// 
 			// frmPackageMaintenance
 			// 

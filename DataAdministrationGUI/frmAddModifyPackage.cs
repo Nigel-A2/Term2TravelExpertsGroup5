@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAdministrationGUI.Models;
 
 namespace DataAdministrationGUI
 {
@@ -20,6 +21,16 @@ namespace DataAdministrationGUI
 		private void btnCancelPackage_Click(object sender, EventArgs e)
 		{
 			this.DialogResult = DialogResult.OK;
+		}
+
+		private void frmAddModifyPackage_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnPackageOK_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
