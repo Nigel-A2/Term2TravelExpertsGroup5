@@ -78,20 +78,20 @@ namespace DataAdministrationGUI
 			// lblPkgStartDate
 			// 
 			this.lblPkgStartDate.AutoSize = true;
-			this.lblPkgStartDate.Location = new System.Drawing.Point(142, 103);
+			this.lblPkgStartDate.Location = new System.Drawing.Point(61, 106);
 			this.lblPkgStartDate.Name = "lblPkgStartDate";
-			this.lblPkgStartDate.Size = new System.Drawing.Size(60, 15);
+			this.lblPkgStartDate.Size = new System.Drawing.Size(141, 15);
 			this.lblPkgStartDate.TabIndex = 3;
-			this.lblPkgStartDate.Text = "Start date:";
+			this.lblPkgStartDate.Text = "Start date (yyyy-mm-dd):";
 			// 
 			// lblPkgEndDate
 			// 
 			this.lblPkgEndDate.AutoSize = true;
-			this.lblPkgEndDate.Location = new System.Drawing.Point(146, 143);
+			this.lblPkgEndDate.Location = new System.Drawing.Point(65, 143);
 			this.lblPkgEndDate.Name = "lblPkgEndDate";
-			this.lblPkgEndDate.Size = new System.Drawing.Size(56, 15);
+			this.lblPkgEndDate.Size = new System.Drawing.Size(137, 15);
 			this.lblPkgEndDate.TabIndex = 4;
-			this.lblPkgEndDate.Text = "End date:";
+			this.lblPkgEndDate.Text = "End date (yyyy-mm-dd):";
 			// 
 			// lblPkgDesc
 			// 

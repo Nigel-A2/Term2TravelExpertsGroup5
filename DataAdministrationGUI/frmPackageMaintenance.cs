@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAdministrationGUI.Models;
 using Microsoft.Data.SqlClient; // ADO.NET provider for SQL Server 
@@ -130,7 +126,7 @@ namespace DataAdministrationGUI
 			{
 				// gets data from the row that the user pressed modify or delete on
 				string cellSelected = dgvPackagesDisplay.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
-				selectedPackage = packageContext.Packages.Find(cellSelected);
+				selectedPackage = packageContext.Packages.Find(cellSelected); // WHY IS IT CRASHING HERE!?
 			}
 
 			if (e.ColumnIndex == PackagesModifyIndex)

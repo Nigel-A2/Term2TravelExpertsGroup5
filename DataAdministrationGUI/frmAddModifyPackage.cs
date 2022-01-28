@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAdministrationGUI.Models;
 
@@ -41,7 +34,7 @@ namespace DataAdministrationGUI
 				if (isAdd)
 				{
 					this.Text = "Add Package";
-					txtPackageID.ReadOnly = false; // allow entry of new package ID
+					txtPackageID.ReadOnly = true; // packageID seems to auto-increment
 				}
 				else
 				{
@@ -72,7 +65,7 @@ namespace DataAdministrationGUI
 		// confirms and executes the user's actions
 		private void btnPackageOK_Click(object sender, EventArgs e)
 		{
-			if (Validator.IsNonNegativeInt(txtPackageID) &&
+			if (
 				Validator.IsPresent(txtPkgName) &&
 				Validator.IsPresent(txtPkgStartDate) &&
 				Validator.IsPresent(txtPkgEndDate) &&
@@ -82,24 +75,30 @@ namespace DataAdministrationGUI
 			{
 				// agency commission > base price
 				// package end date must be later than start date (int dateComparison = DateTime.Compare(CurrentPackage.PkgStartDate, CurrentPackage.PkgEndDate)) if (dateComparison >= 0) throw error
-				// if statement
-				//{
-					if (isAdd) // need to create package object
-					{
-						CurrentPackage = new Package();
-					}
-					// put data from the form into the package object
-					CurrentPackage.PackageId = Convert.ToInt32(txtPackageID.Text);
-					CurrentPackage.PkgName = txtPkgName.Text;
-					CurrentPackage.PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-					CurrentPackage.PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
-					CurrentPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
-					CurrentPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text);
-
-
+				
+				if (isAdd) // need to create package object
+				{
+					CurrentPackage = new Package();
+				}
+				// put data from the form into the package object
+				//CurrentPackage.PackageId = Convert.ToInt32(txtPackageID.Text);
+				CurrentPackage.PkgName = txtPkgName.Text;
+				CurrentPackage.PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
+				CurrentPackage.PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
+				CurrentPackage.PkgDesc = txtPkgDesc.Text;
+				CurrentPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
+				CurrentPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text);
+				int dateComparison = DateTime.Compare((DateTime)CurrentPackage.PkgStartDate, (DateTime)CurrentPackage.PkgEndDate);
+				// the validators I was talking about
+				if (CurrentPackage.PkgBasePrice > CurrentPackage.PkgAgencyCommission &&
+				dateComparison < 0)
+				{
 					this.DialogResult = DialogResult.OK; // closes the form
-				//}
-				// else MessageBox.Show
+				}
+				else
+				{
+					MessageBox.Show($"ERROR: One of the following conditions has not been met: \n (1) Package start date must be earlier than its end date. \n (2) The base price of a package must be higher than its agency commission.");
+				}
 			}
 		}
 	}
