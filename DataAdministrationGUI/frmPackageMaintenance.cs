@@ -133,10 +133,6 @@ namespace DataAdministrationGUI
 				selectedPackage = packageContext.Packages.Find(cellSelected);
 			}
 
-			// if statements for the modify and delete buttons. We need to make a validator for the following requirements:
-			// agency commission > base price
-			// package end date must be later than start date (
-			// package name and description must not be null
 			if (e.ColumnIndex == PackagesModifyIndex)
 			{
 				ModifyPackage();
@@ -180,6 +176,7 @@ namespace DataAdministrationGUI
 			}
 		}
 
+		// gives a confirmation dialog box with yes or no options
 		private void DeletePackage()
 		{
 			DialogResult result =

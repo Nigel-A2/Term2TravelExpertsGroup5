@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TechSupportForm
+namespace DataAdministrationGUI
 {
     /// <summary>
     /// a repository of user input validation methods for Windows Forms projects
