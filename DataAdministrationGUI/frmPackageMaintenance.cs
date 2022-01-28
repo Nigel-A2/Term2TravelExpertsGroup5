@@ -47,7 +47,7 @@ namespace DataAdministrationGUI
 				{
 					using (TravelExpertsContext db = new TravelExpertsContext())
 					{
-						db.Products.Add(selectedPackage); // error CS1503
+						db.Packages.Add(selectedPackage);
 						db.SaveChanges();
 						DisplayPackages();
 					}
@@ -147,7 +147,7 @@ namespace DataAdministrationGUI
 			}
 		}
 
-
+		// takes user to another form to 
 		private void ModifyPackage()
 		{
 			var addModifyPackageform = new frmAddModifyPackage();
@@ -183,14 +183,14 @@ namespace DataAdministrationGUI
 		private void DeletePackage()
 		{
 			DialogResult result =
-				MessageBox.Show($"Delete {selectedPackage.PackageId.Trim()}?", // error CS1929
+				MessageBox.Show($"Delete {selectedPackage.PackageId}?", // error CS1929- I hope I fixed it
 				"Confirm Delete", MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
 			{
 				try
 				{
-					packageContext.Products.Remove(selectedPackage); // error CS1503
+					packageContext.Packages.Remove(selectedPackage); 
 					packageContext.SaveChanges(true);
 					DisplayPackages();
 				}
@@ -209,9 +209,7 @@ namespace DataAdministrationGUI
 			}
 		}
 
-
-			
-
+		// error handlers
 		private void HandleDbUpdateException(DbUpdateException ex) // problems with saving changes
 		{
 			// get the inner exception with potentially multiple errors
@@ -224,7 +222,7 @@ namespace DataAdministrationGUI
 			MessageBox.Show(message, "Database error(s)");
 		}
 
-		// error handlers
+		
 		private void HandleConcurrencyError(DbUpdateConcurrencyException ex)
 		{
 			ex.Entries.Single().Reload();
@@ -232,12 +230,12 @@ namespace DataAdministrationGUI
 			var state = packageContext.Entry(selectedPackage).State;
 			if (state == EntityState.Detached)
 			{
-				MessageBox.Show("Another user has deleted that product.",
+				MessageBox.Show("Another agent has deleted that package.",
 					"Concurrency Error");
 			}
 			else
 			{
-				string message = "Another user has updated that product.\n" +
+				string message = "Another agent has updated that package.\n" +
 					"The current database values will be displayed.";
 				MessageBox.Show(message, "Concurrency Error");
 			}
