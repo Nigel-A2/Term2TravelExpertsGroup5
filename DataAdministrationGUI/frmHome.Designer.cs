@@ -125,7 +125,7 @@ namespace DataAdministrationGUI
 			this.Controls.Add(this.btnSuppliers);
 			this.Controls.Add(this.btnPackages);
 			this.Name = "frmHome";
-			this.Text = "Form1";
+			this.Text = "Home";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

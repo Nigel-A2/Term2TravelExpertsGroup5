@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CustomerMaintenanceGUI
+namespace DataAdministrationGUI
 {
     /// <summary>
     /// a repository of user input validation methods for Windows Forms projects
@@ -25,6 +21,23 @@ namespace CustomerMaintenanceGUI
                 isValid = false;
                 MessageBox.Show(tb.Tag + " is required");
                 tb.Focus();
+            }
+            return isValid;
+        }
+
+        /// <summary>
+        /// validates if combo box has value selected
+        /// </summary>
+        /// <param name="tb"> combo box to validate</param>
+        /// <returns>true if selected and false if not</returns>
+        public static bool IsSelected(ComboBox cb)
+        {
+            bool isValid = true;
+            if (cb.SelectedIndex == -1) // not selected
+            {
+                isValid = false;
+                MessageBox.Show(cb.Tag + " must be selected");
+                cb.Focus();
             }
             return isValid;
         }
