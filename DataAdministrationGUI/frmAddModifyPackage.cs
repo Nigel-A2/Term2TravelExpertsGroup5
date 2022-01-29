@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using DataAdministrationGUI.Models;
 
-// written by: Nigel, anyone else?
+// written by: Nigel
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyPackage : Form

@@ -1,15 +1,8 @@
-﻿using CustomerMaintenanceGUI;
-using DataAdministrationGUI.Models;
+﻿using DataAdministrationGUI.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// written by: Filip
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyProduct : Form

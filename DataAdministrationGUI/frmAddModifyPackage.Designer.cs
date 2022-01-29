@@ -45,6 +45,7 @@ namespace DataAdministrationGUI
 			this.txtPkgBasePrice = new System.Windows.Forms.TextBox();
 			this.txtPkgAgencyCommission = new System.Windows.Forms.TextBox();
 			this.btnPackageOK = new System.Windows.Forms.Button();
+			this.lblPkgIdDisclaimer = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// btnCancelPackage
@@ -186,11 +187,21 @@ namespace DataAdministrationGUI
 			this.btnPackageOK.UseVisualStyleBackColor = true;
 			this.btnPackageOK.Click += new System.EventHandler(this.btnPackageOK_Click);
 			// 
+			// lblPkgIdDisclaimer
+			// 
+			this.lblPkgIdDisclaimer.AutoSize = true;
+			this.lblPkgIdDisclaimer.Location = new System.Drawing.Point(355, 33);
+			this.lblPkgIdDisclaimer.Name = "lblPkgIdDisclaimer";
+			this.lblPkgIdDisclaimer.Size = new System.Drawing.Size(210, 15);
+			this.lblPkgIdDisclaimer.TabIndex = 16;
+			this.lblPkgIdDisclaimer.Text = "(Package ID increments automatically)";
+			// 
 			// frmAddModifyPackage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.lblPkgIdDisclaimer);
 			this.Controls.Add(this.btnPackageOK);
 			this.Controls.Add(this.txtPkgAgencyCommission);
 			this.Controls.Add(this.txtPkgBasePrice);
@@ -233,5 +244,6 @@ namespace DataAdministrationGUI
 		private System.Windows.Forms.TextBox txtPkgBasePrice;
 		private System.Windows.Forms.TextBox txtPkgAgencyCommission;
 		private System.Windows.Forms.Button btnPackageOK;
+		private System.Windows.Forms.Label lblPkgIdDisclaimer;
 	}
 }

@@ -7,8 +7,7 @@ using DataAdministrationGUI.Models;
 using Microsoft.Data.SqlClient; // ADO.NET provider for SQL Server 
 using Microsoft.EntityFrameworkCore;
 
-
-// written by: Nigel, anybody else?
+// written by: Nigel
 namespace DataAdministrationGUI
 {
 	public partial class frmPackageMaintenance : Form
