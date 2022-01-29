@@ -109,7 +109,9 @@ namespace DataAdministrationGUI
 				dgvPackagesDisplay.Columns[3].HeaderText = "End Date:";
 				dgvPackagesDisplay.Columns[4].HeaderText = "Description:";
 				dgvPackagesDisplay.Columns[5].HeaderText = "Base price:";
+				dgvPackagesDisplay.Columns[5].DefaultCellStyle.Format = "c";
 				dgvPackagesDisplay.Columns[6].HeaderText = "Agency commission:";
+				dgvPackagesDisplay.Columns[6].DefaultCellStyle.Format = "c";
 
 				// format alternating rows
 				dgvPackagesDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
@@ -125,8 +127,8 @@ namespace DataAdministrationGUI
 			if (e.ColumnIndex == PackagesModifyIndex || e.ColumnIndex == PackagesDeleteIndex)
 			{
 				// gets data from the row that the user pressed modify or delete on
-				string cellSelected = dgvPackagesDisplay.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
-				selectedPackage = packageContext.Packages.Find(cellSelected); // WHY IS IT CRASHING HERE!?
+				int cellSelected = (int)dgvPackagesDisplay.Rows[e.RowIndex].Cells[0].Value;
+				selectedPackage = packageContext.Packages.Find(cellSelected); 
 			}
 
 			if (e.ColumnIndex == PackagesModifyIndex)
@@ -176,7 +178,7 @@ namespace DataAdministrationGUI
 		private void DeletePackage()
 		{
 			DialogResult result =
-				MessageBox.Show($"Delete {selectedPackage.PackageId}?", // error CS1929- I hope I fixed it
+				MessageBox.Show($"Delete {selectedPackage.PkgName}?", 
 				"Confirm Delete", MessageBoxButtons.YesNo,
 				MessageBoxIcon.Question);
 			if (result == DialogResult.Yes)
