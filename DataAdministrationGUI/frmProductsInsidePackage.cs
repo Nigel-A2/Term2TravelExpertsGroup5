@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAdministrationGUI.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace DataAdministrationGUI
 {
 	public partial class frmProductsInsidePackage : Form
 	{
-		// private List<Product> products;
+		private List<PackagesProductsSupplier> packageProduct;
 
 		public frmProductsInsidePackage()
 		{
@@ -21,170 +22,168 @@ namespace DataAdministrationGUI
 
 		private void frmProductsInsidePackage_Load(object sender, EventArgs e)
 		{
-			/*
-			 * try
+
+			 try
 			{
 				using (TravelExpertsContext db = new TravelExpertsContext())
 				{
-					products = db.Products.ToList();
-					FillProductsListBox();
+					packageProduct = db.PackagesProductsSuppliers.ToList();
+					FillPackageProductsListBox();
 				}
 			}
 			catch (Exception exception)
 			{
-				MessageBox.Show("Error while getting products data: " + exception.Message, exception.GetType().ToString());
+				MessageBox.Show("Error while getting package products data: " + exception.Message, exception.GetType().ToString());
 
 			}
-			 * */
+			
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			/*
-			* frmAddModifyProduct addForm = CreateAddModifyForm(true, null);
+
+			frmAddModifyProductsToPackage addForm = CreateAddModifyForm(true, null);
 
 			DialogResult result = addForm.ShowDialog();
 			if (result == DialogResult.OK)
 			{
-				AddProduct(addForm.product);
+				AddPackageProduct(addForm.packageProduct);
 			}
-			 * */
+
 		}
 
-		/*
-		 * private void AddProduct(Product product)
+		
+		  private void AddPackageProduct(PackagesProductsSupplier packageProduct)
 		{
 			try
 			{
 				using (TravelExpertsContext db = new TravelExpertsContext())
 				{
-					db.Products.Add(product);
+					db.PackagesProductsSuppliers.Add(packageProduct);
 					db.SaveChanges();
 				}
-				products.Add(product);
-				FillProductsListBox();
+				packageProduct.Add(packageProduct);
+				FillPackageProductsListBox();
 			}
 			catch (Exception exception)
 			{
 				MessageBox.Show("Error while adding new product: " + exception.Message, exception.GetType().ToString());
 			}
 		}
-		 * */
+		 
 
 		private void btnModify_Click(object sender, EventArgs e)
 		{
-			/*
-			 * int selectedIndex = lbxProducts.SelectedIndex;
+
+			int selectedIndex = lbxPackageProducts.SelectedIndex;
 			if (selectedIndex != -1)
 			{
-				Product product = (Product)products[selectedIndex];
-				frmAddModifyProduct modifyForm = CreateAddModifyForm(false, product);
+				PackagesProductsSupplier currentPackageProduct = (PackagesProductsSupplier)packageProduct[selectedIndex];
+				frmAddModifyProductsToPackage modifyForm = CreateAddModifyForm(false, currentPackageProduct);
 
 				DialogResult result = modifyForm.ShowDialog();
 				if (result == DialogResult.OK)
 				{
-					ModifyProduct(modifyForm.product);
+					ModifyPackageProduct(modifyForm.packageProduct);
 				}
 			}
 			else
 			{
 				MessageBox.Show("You need to select a product!", "Modify Aborted");
 			}
-			 * */
+
 		}
 
-		/*
-		 * private void ModifyProduct(Product updatedProduct)
+		
+		  private void ModifyPackageProduct(Product updatedProduct)
 		{
 			try
 			{
 				using (TravelExpertsContext db = new TravelExpertsContext())
 				{
-					Product productToUpdate = db.Products.Find(updatedProduct.ProductId);
-					productToUpdate.ProdName = updatedProduct.ProdName;
+					PackagesProductsSupplier productToUpdate = db.PackagesProductsSuppliers.Find(updatedPackageProduct.PackageId);
+					
 					db.SaveChanges();
 				}
-				UpdateProductsList(updatedProduct);
-				FillProductsListBox();
+				UpdatePackageProductsList(updatedPackageProduct);
+				FillPackageProductsListBox();
 			}
 			catch (Exception exception)
 			{
 				MessageBox.Show("Error while modifying product: " + exception.Message, exception.GetType().ToString());
 			}
 		}
-		 * */
+		 
 
 		private void btnDelete_Click(object sender, EventArgs e)
 		{
-			/*
-			* int selectedIndex = lbxProducts.SelectedIndex;
+
+			int selectedIndex = lbxPackageProducts.SelectedIndex;
 			if (selectedIndex != -1)
 			{
-				Product product = (Product)products[selectedIndex];
-				DialogResult answer = MessageBox.Show($"Are you sure you want to delete {product.ProdName}?",
+				PackagesProductsSupplier currentPackageProduct = (PackagesProductsSupplier)packageProduct[selectedIndex];
+				DialogResult answer = MessageBox.Show($"Are you sure you want to delete {packageProduct.ProductSupplierId}?",
 					"Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 				if (answer == DialogResult.Yes)
 				{
-					DeleteProduct(product);
+					DeletePackageProduct(packageProduct);
 				}
 			}
 			else
 			{
 				MessageBox.Show("You need to select a product!", "Delete Aborted");
 			}
-			 * */
+
 		}
 
-		/*
-		 * private void DeleteProduct(Product product)
+		
+		  private void DeletePackageProduct(PackagesProductsSupplier currentPackageProduct)
 		{
 			try
 			{
 				using (TravelExpertsContext db = new TravelExpertsContext())
 				{
-					db.Products.Remove(product);
+					db.PackagesProductsSuppliers.Remove(currentPackageProduct);
 					db.SaveChanges();
 				}
-				products.Remove(product);
-				FillProductsListBox();
+				packageProduct.Remove(currentPackageProduct);
+				FillPackageProductsListBox();
 			}
 			catch (Exception exception)
 			{
 				MessageBox.Show("Error while deleting product! " + exception.Message, exception.GetType().ToString());
 			}
 		}
-		 * */
+		 
 
 		private void btnHome_Click(object sender, EventArgs e)
 		{
-			/*
-			 * 
-			 * */
+			this.Close();
 		}
 
-		/*
-		 * private void UpdateProductsList(Product updatedProduct)
+		
+		  private void UpdatePackageProductsList(PackagesProductsSupplier updatedPackageProduct)
 		{
-			Product productToUpdate = products.Find(p => p.ProductId.Equals(updatedProduct.ProductId));
-			productToUpdate.ProdName = updatedProduct.ProdName;
+			PackagesProductsSupplier packageproductToUpdate = packageProduct.Find(pp => pp.ProductSupplierId.Equals(updatedPackageProduct.ProductSupplierId));
+			
 		}
 
-		private void FillProductsListBox()
+		private void FillPackageProductsListBox()
 		{
-			lbxProducts.Items.Clear();
-			foreach (Product p in products)
+			lbxPackageProducts.Items.Clear();
+			foreach (PackagesProductsSupplier pp in packageProduct)
 			{
-				lbxProducts.Items.Add(p.GetDisplayText("\t"));
+				lbxPackageProducts.Items.Add(pp.GetDisplayText("\t"));
 			}
 		}
 
-		private frmAddModifyProduct CreateAddModifyForm(bool isAdd, Product selectedProduct)
+		private frmAddModifyProductsToPackage CreateAddModifyForm(bool isAdd, PackagesProductsSupplier selectedPackageProduct)
 		{
-			frmAddModifyProduct form = new frmAddModifyProduct();
+			frmAddModifyProductsToPackage form = new frmAddModifyProductsToPackage();
 			form.isAdd = isAdd;
-			form.product = selectedProduct;
+			form.packageProduct = selectedPackageProduct;
 			return form;
 		}
-		 * */
+		
 	}
 }
