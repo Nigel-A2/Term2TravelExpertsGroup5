@@ -16,5 +16,30 @@ namespace DataAdministrationGUI
 		{
 			InitializeComponent();
 		}
+
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void frmProductSupplierMaintenance_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnModify_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnDelete_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnHome_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

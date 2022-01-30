@@ -16,5 +16,20 @@ namespace DataAdministrationGUI
 		{
 			InitializeComponent();
 		}
+
+		private void frmAddModifyProductSupplier_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnConfirm_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

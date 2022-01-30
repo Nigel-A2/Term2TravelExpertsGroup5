@@ -28,7 +28,7 @@ namespace DataAdministrationGUI
 			/*
 			 * if (isAdd)
             {
-                this.Text = "Add Product";
+                this.Text = "Add products to a package";
                 tbxProductId.Text = "ID is generated automatically";
             }
             else

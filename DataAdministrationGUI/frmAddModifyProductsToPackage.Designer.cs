@@ -101,7 +101,7 @@ namespace DataAdministrationGUI
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnConfirm);
 			this.Name = "frmAddModifyProductsToPackage";
-			this.Text = "Add products to a package";
+			this.Text = "text here";
 			this.Load += new System.EventHandler(this.frmAddModifyProductsToPackage_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
