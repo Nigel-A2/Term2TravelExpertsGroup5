@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 // written by: Nigel
 namespace DataAdministrationGUI
 {
@@ -37,6 +36,18 @@ namespace DataAdministrationGUI
 		private void btnExit_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
+		}
+
+		private void btnPackageProducts_Click(object sender, EventArgs e)
+		{
+			var packageProductForm = new frmProductsInsidePackage();
+			DialogResult result = packageProductForm.ShowDialog();
+		}
+
+		private void btnProductSuppliers_Click(object sender, EventArgs e)
+		{
+			var productSupplierForm = new frmProductSupplierMaintenance();
+			DialogResult result = productSupplierForm.ShowDialog();
 		}
 	}
 }

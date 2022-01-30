@@ -36,6 +36,8 @@ namespace DataAdministrationGUI
 			this.lblCompanyName = new System.Windows.Forms.Label();
 			this.lblProgramName = new System.Windows.Forms.Label();
 			this.lblCopyright = new System.Windows.Forms.Label();
+			this.btnProductSuppliers = new System.Windows.Forms.Button();
+			this.btnPackageProducts = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnPackages
@@ -112,11 +114,33 @@ namespace DataAdministrationGUI
 			this.lblCopyright.Text = "Copyright© TravelExperts, 2022";
 			this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// btnProductSuppliers
+			// 
+			this.btnProductSuppliers.Location = new System.Drawing.Point(642, 283);
+			this.btnProductSuppliers.Name = "btnProductSuppliers";
+			this.btnProductSuppliers.Size = new System.Drawing.Size(116, 45);
+			this.btnProductSuppliers.TabIndex = 7;
+			this.btnProductSuppliers.Text = "Product suppliers";
+			this.btnProductSuppliers.UseVisualStyleBackColor = true;
+			this.btnProductSuppliers.Click += new System.EventHandler(this.btnProductSuppliers_Click);
+			// 
+			// btnPackageProducts
+			// 
+			this.btnPackageProducts.Location = new System.Drawing.Point(71, 283);
+			this.btnPackageProducts.Name = "btnPackageProducts";
+			this.btnPackageProducts.Size = new System.Drawing.Size(116, 45);
+			this.btnPackageProducts.TabIndex = 8;
+			this.btnPackageProducts.Text = "Package products";
+			this.btnPackageProducts.UseVisualStyleBackColor = true;
+			this.btnPackageProducts.Click += new System.EventHandler(this.btnPackageProducts_Click);
+			// 
 			// frmHome
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btnPackageProducts);
+			this.Controls.Add(this.btnProductSuppliers);
 			this.Controls.Add(this.lblCopyright);
 			this.Controls.Add(this.lblProgramName);
 			this.Controls.Add(this.lblCompanyName);
@@ -140,6 +164,8 @@ namespace DataAdministrationGUI
 		private System.Windows.Forms.Label lblCompanyName;
 		private System.Windows.Forms.Label lblProgramName;
 		private System.Windows.Forms.Label lblCopyright;
+		private System.Windows.Forms.Button btnProductSuppliers;
+		private System.Windows.Forms.Button btnPackageProducts;
 	}
 }
 
