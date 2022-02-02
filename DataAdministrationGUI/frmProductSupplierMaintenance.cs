@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 
+
+//Author: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmProductSupplierMaintenance : Form
 	{
-
 		private List<ProductsSupplier> productsSuppliers;
 
 		public frmProductSupplierMaintenance()
