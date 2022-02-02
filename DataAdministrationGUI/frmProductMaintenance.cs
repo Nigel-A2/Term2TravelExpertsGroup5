@@ -161,10 +161,5 @@ namespace DataAdministrationGUI
 			form.product = selectedProduct;
 			return form;
 		}
-
-        private void frmProductMaintenance_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
     }
 }

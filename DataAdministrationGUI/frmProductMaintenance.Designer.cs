@@ -114,7 +114,6 @@ namespace DataAdministrationGUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Product Maintenance";
             this.Load += new System.EventHandler(this.frmAddModifyProduct_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProductMaintenance_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
