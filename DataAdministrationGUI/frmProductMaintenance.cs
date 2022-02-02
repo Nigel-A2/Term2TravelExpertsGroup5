@@ -161,10 +161,13 @@ namespace DataAdministrationGUI
 			form.product = selectedProduct;
 			return form;
 		}
+<<<<<<< c6a3f2a74549c724aa3dd2446f1a89af1ae3e21c
 
         private void frmProductMaintenance_KeyDown(object sender, KeyEventArgs e)
         {
 
         }
+=======
+>>>>>>> Products Suppliers Maintenence
     }
 }

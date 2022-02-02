@@ -111,8 +111,12 @@ namespace DataAdministrationGUI
             this.Controls.Add(this.lbxProducts);
             this.Controls.Add(this.btnDeleteProduct);
             this.Name = "frmProductMaintenance";
+<<<<<<< c6a3f2a74549c724aa3dd2446f1a89af1ae3e21c
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Product Maintenance";
+=======
+            this.Text = "frmProductMaintenance";
+>>>>>>> Products Suppliers Maintenence
             this.Load += new System.EventHandler(this.frmAddModifyProduct_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmProductMaintenance_KeyDown);
             this.ResumeLayout(false);
