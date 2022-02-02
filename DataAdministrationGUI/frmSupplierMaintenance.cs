@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAdministrationGUI.Models;
-using Microsoft.Data.SqlClient; // ADO.NET provider for SQL Server 
+using Microsoft.Data.SqlClient; 
 using Microsoft.EntityFrameworkCore;
 
 
@@ -275,8 +275,5 @@ namespace DataAdministrationGUI
 			}
 			MessageBox.Show(message, "Database error(s)");
 		}
-
-
-
 	}
 }

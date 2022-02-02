@@ -42,7 +42,7 @@ namespace DataAdministrationGUI
             this.btnCancelSupplier.Location = new System.Drawing.Point(259, 238);
             this.btnCancelSupplier.Name = "btnCancelSupplier";
             this.btnCancelSupplier.Size = new System.Drawing.Size(185, 38);
-            this.btnCancelSupplier.TabIndex = 0;
+            this.btnCancelSupplier.TabIndex = 3;
             this.btnCancelSupplier.Text = "Cancel";
             this.btnCancelSupplier.UseVisualStyleBackColor = true;
             this.btnCancelSupplier.Click += new System.EventHandler(this.btnCancelSupplier_Click);
@@ -79,7 +79,7 @@ namespace DataAdministrationGUI
             this.txtSupplierName.MaxLength = 255;
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(279, 23);
-            this.txtSupplierName.TabIndex = 4;
+            this.txtSupplierName.TabIndex = 1;
             this.txtSupplierName.Tag = "Supplier Name";
             // 
             // btnConfirmModify
@@ -87,7 +87,7 @@ namespace DataAdministrationGUI
             this.btnConfirmModify.Location = new System.Drawing.Point(259, 179);
             this.btnConfirmModify.Name = "btnConfirmModify";
             this.btnConfirmModify.Size = new System.Drawing.Size(185, 41);
-            this.btnConfirmModify.TabIndex = 5;
+            this.btnConfirmModify.TabIndex = 2;
             this.btnConfirmModify.Text = "Confirm";
             this.btnConfirmModify.UseVisualStyleBackColor = true;
             this.btnConfirmModify.Click += new System.EventHandler(this.btnConfirmModify_Click);

@@ -40,7 +40,7 @@ namespace DataAdministrationGUI
             this.btnSuppliersToHome.Location = new System.Drawing.Point(728, 485);
             this.btnSuppliersToHome.Name = "btnSuppliersToHome";
             this.btnSuppliersToHome.Size = new System.Drawing.Size(182, 49);
-            this.btnSuppliersToHome.TabIndex = 0;
+            this.btnSuppliersToHome.TabIndex = 2;
             this.btnSuppliersToHome.Text = "Home";
             this.btnSuppliersToHome.UseVisualStyleBackColor = true;
             this.btnSuppliersToHome.Click += new System.EventHandler(this.btnSuppliersToHome_Click);
@@ -62,7 +62,8 @@ namespace DataAdministrationGUI
             this.dgvSuppliers.Name = "dgvSuppliers";
             this.dgvSuppliers.RowTemplate.Height = 25;
             this.dgvSuppliers.Size = new System.Drawing.Size(710, 520);
-            this.dgvSuppliers.TabIndex = 2;
+            this.dgvSuppliers.TabIndex = 5;
+            this.dgvSuppliers.TabStop = false;
             this.dgvSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuppliers_CellClick);
             // 
             // frmSupplierMaintenance
@@ -76,6 +77,7 @@ namespace DataAdministrationGUI
             this.Controls.Add(this.btnSuppliersToHome);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "frmSupplierMaintenance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Supplier Maintenance";
             this.Load += new System.EventHandler(this.frmSupplierMaintenance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).EndInit();
