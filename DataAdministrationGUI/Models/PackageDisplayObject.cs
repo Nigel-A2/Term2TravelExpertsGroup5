@@ -14,9 +14,25 @@ namespace DataAdministrationGUI.Models
         public string ProductName { get; set; }
         public string SupplierName { get; set; }
 
+        public PackageDisplayObject() { }
+
+        public PackageDisplayObject(int packageId, int productSupplierId, string packageName, string productName, string supplierName)
+        {
+            PackageId = packageId;
+            ProductSupplierId = productSupplierId;
+            PackageName = packageName;
+            ProductName = productName;
+            SupplierName = supplierName;
+        }
+
         public string GetDisplayText(string sep)
         {
             return PackageName.PadRight(30) + sep + ProductName.PadRight(30) + sep + SupplierName.PadRight(30);
+        }
+
+        public string displayProductAndSupplier(string sep)
+        {
+            return ProductName + sep + SupplierName;
         }
 
     }

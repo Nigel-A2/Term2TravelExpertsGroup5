@@ -56,7 +56,32 @@ namespace DataAdministrationGUI
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
+			frmAddModifyProductsToPackage addForm = CreateAddModifyForm(true, null);
 
+			DialogResult result = addForm.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				AddPackageProductSupplier(addForm.packagesProductsSupplier, addForm.packageDisplayObject);
+			}
+		}
+
+		private void AddPackageProductSupplier(PackagesProductsSupplier packageProductSupplierToAdd, PackageDisplayObject packageDisplayObject)
+		{
+			try
+			{
+				using (TravelExpertsContext db = new TravelExpertsContext())
+				{
+				
+					db.PackagesProductsSuppliers.Add(packageProductSupplierToAdd);
+					db.SaveChanges();
+				}
+				productsInPackages.Add(packageDisplayObject);
+				FillProductsInPackagesListBox();
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show("Error while adding new product-supplier: " + exception.Message, exception.GetType().ToString());
+			}
 		}
 
 
@@ -124,6 +149,14 @@ namespace DataAdministrationGUI
 			{
 				lbxPackageProducts.Items.Add(p.GetDisplayText("\t"));
 			}
+		}
+
+		private frmAddModifyProductsToPackage CreateAddModifyForm(bool isAdd, PackagesProductsSupplier selectedPackageProductSupplier)
+		{
+			frmAddModifyProductsToPackage form = new frmAddModifyProductsToPackage();
+			form.isAdd = isAdd;
+			form.packagesProductsSupplier = selectedPackageProductSupplier;
+			return form;
 		}
 
 
