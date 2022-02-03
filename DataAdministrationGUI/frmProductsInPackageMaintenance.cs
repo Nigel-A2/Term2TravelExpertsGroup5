@@ -15,6 +15,8 @@ namespace DataAdministrationGUI
 	{
 		private List<PackageDisplayObject> productsInPackages;
 
+		private PackageDisplayObject selectedPdo;
+
 		public frmProductsInPackageMaintenance()
 		{
 			InitializeComponent();
@@ -88,7 +90,60 @@ namespace DataAdministrationGUI
 
 		private void btnModify_Click(object sender, EventArgs e)
 		{
+			int selectedIndex = lbxPackageProducts.SelectedIndex;
+			if (selectedIndex != -1)
+			{
+				selectedPdo = productsInPackages[selectedIndex];
+				PackagesProductsSupplier selectedPkgProdSup = new PackagesProductsSupplier();
+				selectedPkgProdSup.PackageId = selectedPdo.PackageId;
+				selectedPkgProdSup.ProductSupplierId = selectedPdo.ProductSupplierId;
+				frmAddModifyProductsToPackage modifyForm = CreateAddModifyForm(false, selectedPkgProdSup);
+				DialogResult result = modifyForm.ShowDialog();
+				if (result == DialogResult.OK)
+				{
+					ModifyProduct(modifyForm.packagesProductsSupplier, modifyForm.packageDisplayObject);
+				}
+			}
+			else
+			{
+				MessageBox.Show("You need to select a product-package-supplier!", "Modify Aborted");
+			}
+		}
 
+		private void ModifyProduct(PackagesProductsSupplier packagesProductsSupplier, PackageDisplayObject packageDisplayObject)
+		{
+			try
+			{
+				using (TravelExpertsContext db = new TravelExpertsContext())
+				{
+					PackagesProductsSupplier productPackageSupplierToDelete =
+						db.PackagesProductsSuppliers
+						.Where(pps => pps.ProductSupplierId == selectedPdo.ProductSupplierId && pps.PackageId == selectedPdo.PackageId)
+						.First();
+					db.Remove(productPackageSupplierToDelete);
+
+					PackagesProductsSupplier productPackageSupplierToInsert = new PackagesProductsSupplier();
+					productPackageSupplierToInsert.ProductSupplierId = packagesProductsSupplier.ProductSupplierId;
+					productPackageSupplierToInsert.PackageId = packagesProductsSupplier.PackageId;
+					db.Add(productPackageSupplierToInsert);
+					db.SaveChanges();
+				}
+				UpdateProductsSuppliersList(packageDisplayObject);
+				FillProductsInPackagesListBox();
+			}
+			catch (Exception exception)
+			{
+				MessageBox.Show("Error while modifying package-product-supplier: " + exception.Message, exception.GetType().ToString());
+			}
+		}
+
+		private void UpdateProductsSuppliersList(PackageDisplayObject packageDisplayObject)
+		{
+			PackageDisplayObject pdoToUpdate = productsInPackages
+				.Find(p => p.ProductSupplierId.Equals(selectedPdo.ProductSupplierId) && p.PackageId.Equals(selectedPdo.PackageId));
+			pdoToUpdate.SupplierName = packageDisplayObject.SupplierName;
+			pdoToUpdate.ProductSupplierId = packageDisplayObject.ProductSupplierId;
+			pdoToUpdate.ProductName = packageDisplayObject.ProductName;
 		}
 
 

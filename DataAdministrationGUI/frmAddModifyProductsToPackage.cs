@@ -45,7 +45,12 @@ namespace DataAdministrationGUI
                 }
                 else
                 {
-                  
+                    cbxPackage.SelectedIndex = packages
+                        .IndexOf(packages.Find(p => packagesProductsSupplier.PackageId == p.PackageId));
+                    cbxPackage.Enabled = false;
+
+                    cbxProductSupplier.SelectedIndex = productsSuppliers
+                        .IndexOf(productsSuppliers.Find(ps => packagesProductsSupplier.ProductSupplierId == ps.ProductSupplierId));
                 }
             }
 
@@ -53,25 +58,52 @@ namespace DataAdministrationGUI
 
 		private void btnConfirm_Click(object sender, EventArgs e)
 		{
-            if (ValidatePackageProductSupplier())
+            if (ValidateRequiredFields())
             {
                 int selectedPackageId = packages.Find(p => p.PkgName.Equals(cbxPackage.SelectedItem.ToString())).PackageId;
-                Object b = cbxProductSupplier;
-                int selectedProductsSupplierId = productsSuppliers.Find(ps => (ps.ProductSupplierId == Convert.ToInt32(cbxProductSupplier.SelectedValue))).ProductSupplierId;
-                if (isAdd)
+                int selectedProductsSupplierId = productsSuppliers
+                    .Find(ps => (ps.ProductSupplierId == Convert.ToInt32(cbxProductSupplier.SelectedValue)))
+                    .ProductSupplierId;
+                if (ValidateCompositeKey(selectedPackageId, selectedProductsSupplierId))
                 {
-                    packagesProductsSupplier = new PackagesProductsSupplier();
+                    if (isAdd)
+                    {
+                        packagesProductsSupplier = new PackagesProductsSupplier();
+                    }
+                    packagesProductsSupplier.PackageId = selectedPackageId;
+                    packagesProductsSupplier.ProductSupplierId = selectedProductsSupplierId;
+                    createPackageDisplayObject(selectedPackageId, selectedProductsSupplierId);
+                    this.DialogResult = DialogResult.OK;
                 }
-                packagesProductsSupplier.PackageId = selectedPackageId;
-                packagesProductsSupplier.ProductSupplierId = selectedProductsSupplierId;
-                createPackageDisplayObject(selectedPackageId, selectedProductsSupplierId);
-                this.DialogResult = DialogResult.OK;
             }
         }
 
-        private bool ValidatePackageProductSupplier()
+        private bool ValidateRequiredFields()
         {
             return Validator.IsSelected(cbxPackage) && Validator.IsSelected(cbxProductSupplier);
+        }
+
+        private bool ValidateCompositeKey(int selectedPackageId, int selectedProductsSupplierId)
+        {
+            bool result = false;
+            try
+            {
+                using (TravelExpertsContext db = new TravelExpertsContext())
+                {
+                    result = db.PackagesProductsSuppliers
+                        .Where(pps => pps.ProductSupplierId == selectedProductsSupplierId && pps.PackageId == selectedPackageId)
+                        .ToList().Count == 0;
+                    if (!result)
+                    {
+                        MessageBox.Show("There already is a record with given Product and Supplier!", "Add-Modify Error");
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Error while getting TravelExperts data: " + exception.Message, exception.GetType().ToString());
+            }
+            return result;
         }
 
         private void LoadPackagesData()
