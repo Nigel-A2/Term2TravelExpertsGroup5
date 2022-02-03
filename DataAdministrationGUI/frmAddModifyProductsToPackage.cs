@@ -108,7 +108,7 @@ namespace DataAdministrationGUI
             var items = new List<Object>();
             foreach (ProductsSupplier ps in productsSuppliers)
             {
-                items.Add(new {Text = ps.GetDisplayText("\t"), Value = ps.ProductSupplierId });
+                items.Add(new {Text = ps.Product.ProdName + ", " + ps.Supplier.SupName, Value = ps.ProductSupplierId });
             }
 
             cbxProductSupplier.DataSource = items;

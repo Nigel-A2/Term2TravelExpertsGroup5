@@ -39,7 +39,7 @@ namespace DataAdministrationGUI
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(481, 176);
+            this.btnConfirm.Location = new System.Drawing.Point(71, 210);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(144, 61);
@@ -51,7 +51,7 @@ namespace DataAdministrationGUI
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(481, 63);
+            this.btnCancel.Location = new System.Drawing.Point(287, 210);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(144, 61);
@@ -82,7 +82,7 @@ namespace DataAdministrationGUI
             this.cbxPackage.FormattingEnabled = true;
             this.cbxPackage.Location = new System.Drawing.Point(179, 63);
             this.cbxPackage.Name = "cbxPackage";
-            this.cbxPackage.Size = new System.Drawing.Size(252, 28);
+            this.cbxPackage.Size = new System.Drawing.Size(433, 28);
             this.cbxPackage.TabIndex = 8;
             // 
             // cbxProductSupplier
@@ -90,7 +90,7 @@ namespace DataAdministrationGUI
             this.cbxProductSupplier.FormattingEnabled = true;
             this.cbxProductSupplier.Location = new System.Drawing.Point(179, 117);
             this.cbxProductSupplier.Name = "cbxProductSupplier";
-            this.cbxProductSupplier.Size = new System.Drawing.Size(252, 28);
+            this.cbxProductSupplier.Size = new System.Drawing.Size(433, 28);
             this.cbxProductSupplier.TabIndex = 9;
             // 
             // frmAddModifyProductsToPackage
