@@ -1,7 +1,7 @@
 ﻿
 namespace DataAdministrationGUI
 {
-	partial class frmProductsInsidePackage
+	partial class frmProductsInPackageMaintenance
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -39,18 +39,20 @@ namespace DataAdministrationGUI
             // lbxPackageProducts
             // 
             this.lbxPackageProducts.FormattingEnabled = true;
-            this.lbxPackageProducts.ItemHeight = 15;
-            this.lbxPackageProducts.Location = new System.Drawing.Point(40, 56);
+            this.lbxPackageProducts.ItemHeight = 20;
+            this.lbxPackageProducts.Location = new System.Drawing.Point(46, 75);
+            this.lbxPackageProducts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbxPackageProducts.Name = "lbxPackageProducts";
-            this.lbxPackageProducts.Size = new System.Drawing.Size(396, 349);
+            this.lbxPackageProducts.Size = new System.Drawing.Size(689, 464);
             this.lbxPackageProducts.TabIndex = 0;
             this.lbxPackageProducts.TabStop = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(541, 58);
+            this.btnAdd.Location = new System.Drawing.Point(819, 75);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(158, 43);
+            this.btnAdd.Size = new System.Drawing.Size(181, 57);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@ namespace DataAdministrationGUI
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(541, 150);
+            this.btnModify.Location = new System.Drawing.Point(819, 198);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(158, 42);
+            this.btnModify.Size = new System.Drawing.Size(181, 56);
             this.btnModify.TabIndex = 2;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@ namespace DataAdministrationGUI
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(541, 253);
+            this.btnDelete.Location = new System.Drawing.Point(819, 325);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(158, 45);
+            this.btnDelete.Size = new System.Drawing.Size(181, 60);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -78,26 +82,28 @@ namespace DataAdministrationGUI
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(541, 357);
+            this.btnHome.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnHome.Location = new System.Drawing.Point(819, 452);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(157, 48);
+            this.btnHome.Size = new System.Drawing.Size(179, 64);
             this.btnHome.TabIndex = 4;
-            this.btnHome.Text = "Home";
+            this.btnHome.Text = "Cancel";
             this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // frmProductsInsidePackage
+            // frmProductsInPackageMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnHome;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1226, 600);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lbxPackageProducts);
-            this.Name = "frmProductsInsidePackage";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "frmProductsInPackageMaintenance";
             this.Text = "Products Inside Packages";
             this.Load += new System.EventHandler(this.frmProductsInsidePackage_Load);
             this.ResumeLayout(false);

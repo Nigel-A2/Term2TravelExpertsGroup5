@@ -40,7 +40,7 @@ namespace DataAdministrationGUI
 
 		private void btnPackageProducts_Click(object sender, EventArgs e)
 		{
-			var packageProductForm = new frmProductsInsidePackage();
+			var packageProductForm = new frmProductsInPackageMaintenance();
 			DialogResult result = packageProductForm.ShowDialog();
 		}
 
