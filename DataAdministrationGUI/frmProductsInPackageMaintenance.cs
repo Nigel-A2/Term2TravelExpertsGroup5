@@ -46,8 +46,7 @@ namespace DataAdministrationGUI
 						};
 
 					productsInPackages = packageQuery.ToList();
-						
-					FillProductsInPackagesListBox();
+					FillDataGridView();
 				}
 			}
 			catch (Exception exception)
@@ -78,7 +77,7 @@ namespace DataAdministrationGUI
 					db.SaveChanges();
 				}
 				productsInPackages.Add(packageDisplayObject);
-				FillProductsInPackagesListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -86,27 +85,16 @@ namespace DataAdministrationGUI
 			}
 		}
 
-
-
-		private void btnModify_Click(object sender, EventArgs e)
+		private void ShowModifyForm()
 		{
-			int selectedIndex = lbxPackageProducts.SelectedIndex;
-			if (selectedIndex != -1)
+			PackagesProductsSupplier selectedPkgProdSup = new PackagesProductsSupplier();
+			selectedPkgProdSup.PackageId = selectedPdo.PackageId;
+			selectedPkgProdSup.ProductSupplierId = selectedPdo.ProductSupplierId;
+			frmAddModifyProductsToPackage modifyForm = CreateAddModifyForm(false, selectedPkgProdSup);
+			DialogResult result = modifyForm.ShowDialog();
+			if (result == DialogResult.OK)
 			{
-				selectedPdo = productsInPackages[selectedIndex];
-				PackagesProductsSupplier selectedPkgProdSup = new PackagesProductsSupplier();
-				selectedPkgProdSup.PackageId = selectedPdo.PackageId;
-				selectedPkgProdSup.ProductSupplierId = selectedPdo.ProductSupplierId;
-				frmAddModifyProductsToPackage modifyForm = CreateAddModifyForm(false, selectedPkgProdSup);
-				DialogResult result = modifyForm.ShowDialog();
-				if (result == DialogResult.OK)
-				{
-					ModifyProduct(modifyForm.packagesProductsSupplier, modifyForm.packageDisplayObject);
-				}
-			}
-			else
-			{
-				MessageBox.Show("You need to select a product-package-supplier!", "Modify Aborted");
+				ModifyProduct(modifyForm.packagesProductsSupplier, modifyForm.packageDisplayObject);
 			}
 		}
 
@@ -129,7 +117,7 @@ namespace DataAdministrationGUI
 					db.SaveChanges();
 				}
 				UpdateProductsSuppliersList(packageDisplayObject);
-				FillProductsInPackagesListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -146,28 +134,17 @@ namespace DataAdministrationGUI
 			pdoToUpdate.ProductName = packageDisplayObject.ProductName;
 		}
 
-
-
-		private void btnDelete_Click(object sender, EventArgs e)
+		private void ShowDeleteDialog(PackageDisplayObject selectedProductInPackage)
 		{
-			int selectedIndex = lbxPackageProducts.SelectedIndex;
-			if (selectedIndex != -1)
-			{
-				PackageDisplayObject selectedProductInPackage = productsInPackages[selectedIndex];
-				DialogResult answer = MessageBox.Show($"Are you sure you want to delete {selectedProductInPackage.ProductName} from package: {selectedProductInPackage.PackageName}?",
+			DialogResult answer = MessageBox.Show($"Are you sure you want to delete {selectedProductInPackage.ProductName} from package: {selectedProductInPackage.PackageName}?",
 					"Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				if (answer == DialogResult.Yes)
-				{
-					DeleteProduct(new PackagesProductsSupplier 
-					{	
-						ProductSupplierId = selectedProductInPackage.ProductSupplierId,
-						PackageId = selectedProductInPackage.PackageId
-					});
-				}
-			}
-			else
+			if (answer == DialogResult.Yes)
 			{
-				MessageBox.Show("You need to select a package-product-supplier!", "Delete Aborted");
+				DeleteProduct(new PackagesProductsSupplier
+				{
+					ProductSupplierId = selectedProductInPackage.ProductSupplierId,
+					PackageId = selectedProductInPackage.PackageId
+				});
 			}
 		}
 
@@ -189,7 +166,7 @@ namespace DataAdministrationGUI
 							p.ProductSupplierId == productInPackage.ProductSupplierId
 						)
 					);
-				FillProductsInPackagesListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -197,13 +174,68 @@ namespace DataAdministrationGUI
 			}
 		}
 
-		private void FillProductsInPackagesListBox()
+		private void FillDataGridView()
 		{
-			lbxPackageProducts.Items.Clear();
-			foreach (PackageDisplayObject p in productsInPackages)
+			dgvProductsPackagesDisplay.Columns.Clear();
+			dgvProductsPackagesDisplay.DataSource = null;
+			dgvProductsPackagesDisplay.DataSource = productsInPackages;
+			dgvProductsPackagesDisplay.Columns["PackageId"].Visible = false;
+			dgvProductsPackagesDisplay.Columns["ProductSupplierId"].Visible = false;
+
+
+
+			// add column for modify button
+			var modifyColumn = new DataGridViewButtonColumn()
 			{
-				lbxPackageProducts.Items.Add(p.GetDisplayText("\t"));
+				UseColumnTextForButtonValue = true,
+				HeaderText = "",
+				Text = "Modify"
+			};
+			dgvProductsPackagesDisplay.Columns.Add(modifyColumn);
+
+			// add column for delete button
+			var deleteColumn = new DataGridViewButtonColumn()
+			{
+				UseColumnTextForButtonValue = true,
+				HeaderText = "",
+				Text = "Delete"
+			};
+			dgvProductsPackagesDisplay.Columns.Add(deleteColumn);
+
+			// format the columns
+			dgvProductsPackagesDisplay.EnableHeadersVisualStyles = false;
+			dgvProductsPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgvProductsPackagesDisplay.Columns[2].HeaderText = "Package name:";
+			dgvProductsPackagesDisplay.Columns[3].HeaderText = "Product name:";
+			dgvProductsPackagesDisplay.Columns[4].HeaderText = "Supplier name:";
+
+
+			// format alternating rows
+			dgvProductsPackagesDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+		}
+
+
+		private void dgvProductDisplay_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			const int ProductsModifyIndex = 5;
+			const int ProductsDeleteIndex = 6;
+
+			if (e.ColumnIndex == ProductsModifyIndex || e.ColumnIndex == ProductsDeleteIndex)
+			{
+				// gets data from the row that the user pressed modify or delete on
+				int selectedIndex = dgvProductsPackagesDisplay.CurrentCell.RowIndex;
+				selectedPdo = productsInPackages[selectedIndex];
+
+				if (e.ColumnIndex == ProductsModifyIndex)
+				{
+					ShowModifyForm();
+				}
+				else if (e.ColumnIndex == ProductsDeleteIndex)
+				{
+					ShowDeleteDialog(productsInPackages[selectedIndex]);
+				}
 			}
+
 		}
 
 		private frmAddModifyProductsToPackage CreateAddModifyForm(bool isAdd, PackagesProductsSupplier selectedPackageProductSupplier)
