@@ -15,5 +15,7 @@ namespace DataAdministrationGUI.Models
         {
             return ProductId + sep + ProdName;
         }
+
+        public override string ToString() { return ProdName; }
     }
 }

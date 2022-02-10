@@ -34,7 +34,7 @@ namespace DataAdministrationGUI
 							.Include(ps => ps.Supplier)
 							.OrderBy(ps => ps.ProductSupplierId)
 							.ToList();
-					FillProductsSupplierListBox();
+					FillDataGridView();
 				}
 			}
 			catch (Exception exception)
@@ -69,7 +69,7 @@ namespace DataAdministrationGUI
 				}
 				productSupplierToAdd.ProductSupplierId = productSupplierDbCompatible.ProductSupplierId;
 				productsSuppliers.Add(productSupplierToAdd);
-				FillProductsSupplierListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -77,22 +77,13 @@ namespace DataAdministrationGUI
 			}
 		}
 
-		private void btnModify_Click(object sender, EventArgs e)
+		private void ShowModifyForm(ProductsSupplier selectedProdSup)
 		{
-			int selectedIndex = lbxProductSuppliers.SelectedIndex;
-			if (selectedIndex != -1)
+			frmAddModifyProductSupplier modifyForm = CreateAddModifyForm(false, selectedProdSup);
+			DialogResult result = modifyForm.ShowDialog();
+			if (result == DialogResult.OK)
 			{
-				ProductsSupplier selectedProdSup = (ProductsSupplier)productsSuppliers[selectedIndex];
-				frmAddModifyProductSupplier modifyForm = CreateAddModifyForm(false, selectedProdSup);
-				DialogResult result = modifyForm.ShowDialog();
-				if (result == DialogResult.OK)
-				{
-					ModifyProduct(modifyForm.productSupplier);
-				}
-			}
-			else
-			{
-				MessageBox.Show("You need to select a product!", "Modify Aborted");
+				ModifyProduct(modifyForm.productSupplier);
 			}
 		}
 
@@ -108,7 +99,7 @@ namespace DataAdministrationGUI
 					db.SaveChanges();
 				}
 				UpdateProductsSuppliersList(newProductSupplier);
-				FillProductsSupplierListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -125,22 +116,13 @@ namespace DataAdministrationGUI
 			productSupplierToUpdate.Supplier = updatedProductSupplier.Supplier;
 		}
 
-		private void btnDelete_Click(object sender, EventArgs e)
+		private void ShowDeleteDialog(ProductsSupplier selectedProdSup)
 		{
-			int selectedIndex = lbxProductSuppliers.SelectedIndex;
-			if (selectedIndex != -1)
-			{
-				ProductsSupplier selectedProdSup = (ProductsSupplier)productsSuppliers[selectedIndex];
-				DialogResult answer = MessageBox.Show($"Are you sure you want to delete item: {selectedProdSup.ProductSupplierId}?",
+			DialogResult answer = MessageBox.Show($"Are you sure you want to delete item: {selectedProdSup.ProductSupplierId}?",
 					"Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-				if (answer == DialogResult.Yes)
-				{
-					DeleteProduct(selectedProdSup);
-				}
-			}
-			else
+			if (answer == DialogResult.Yes)
 			{
-				MessageBox.Show("You need to select a product-supplier!", "Delete Aborted");
+				DeleteProduct(selectedProdSup);
 			}
 		}
 
@@ -154,7 +136,7 @@ namespace DataAdministrationGUI
 					db.SaveChanges();
 				}
 				productsSuppliers.Remove(productSupplierToDelete);
-				FillProductsSupplierListBox();
+				FillDataGridView();
 			}
 			catch (Exception exception)
 			{
@@ -162,13 +144,70 @@ namespace DataAdministrationGUI
 			}
 		}
 
-		private void FillProductsSupplierListBox()
+		private void FillDataGridView()
 		{
-			lbxProductSuppliers.Items.Clear();
-			foreach (ProductsSupplier ps in productsSuppliers)
+			dgvProductSupplierDisplay.Columns.Clear();
+			dgvProductSupplierDisplay.DataSource = null;
+			dgvProductSupplierDisplay.DataSource = productsSuppliers;
+			dgvProductSupplierDisplay.Columns["ProductId"].Visible = false;
+			dgvProductSupplierDisplay.Columns["SupplierId"].Visible = false;
+			dgvProductSupplierDisplay.Columns["BookingDetails"].Visible = false;
+			dgvProductSupplierDisplay.Columns["PackagesProductsSuppliers"].Visible = false;
+
+		
+			
+			// add column for modify button
+			var modifyColumn = new DataGridViewButtonColumn()
 			{
-				lbxProductSuppliers.Items.Add(ps.GetDisplayText("\t"));
+				UseColumnTextForButtonValue = true,
+				HeaderText = "",
+				Text = "Modify"
+			};
+			dgvProductSupplierDisplay.Columns.Add(modifyColumn);
+
+			// add column for delete button
+			var deleteColumn = new DataGridViewButtonColumn()
+			{
+				UseColumnTextForButtonValue = true,
+				HeaderText = "",
+				Text = "Delete"
+			};
+			dgvProductSupplierDisplay.Columns.Add(deleteColumn);
+
+			// format the columns
+			dgvProductSupplierDisplay.EnableHeadersVisualStyles = false;
+			dgvProductSupplierDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgvProductSupplierDisplay.Columns[0].HeaderText = "Product-supplier ID:";
+			dgvProductSupplierDisplay.Columns[3].HeaderText = "Product name:";
+			dgvProductSupplierDisplay.Columns[4].HeaderText = "Supplier name:";
+
+
+			// format alternating rows
+			dgvProductSupplierDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+		}
+
+
+		private void dgvProductDisplay_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			const int ProductsModifyIndex = 7;
+			const int ProductsDeleteIndex = 8;
+
+			if (e.ColumnIndex == ProductsModifyIndex || e.ColumnIndex == ProductsDeleteIndex)
+			{
+				// gets data from the row that the user pressed modify or delete on
+				int cellSelected = (int)dgvProductSupplierDisplay.Rows[e.RowIndex].Cells[0].Value;
+				ProductsSupplier productSupplier = productsSuppliers.Find(p => p.ProductSupplierId.Equals(cellSelected));
+
+				if (e.ColumnIndex == ProductsModifyIndex)
+				{
+					ShowModifyForm(productSupplier);
+				}
+				else if (e.ColumnIndex == ProductsDeleteIndex)
+				{
+					ShowDeleteDialog(productSupplier);
+				}
 			}
+
 		}
 
 		private frmAddModifyProductSupplier CreateAddModifyForm(bool isAdd, ProductsSupplier selectedProductSupplier)
