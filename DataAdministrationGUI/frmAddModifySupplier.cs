@@ -34,12 +34,14 @@ namespace DataAdministrationGUI
 				if (isAdd)
 				{
 					this.Text = "Add Supplier";
+					lblHeader.Text = "Add Supplier";
 					txtSupplierID.Text = newID.ToString();
 					///	add function to create product ID as the latest entry ID + 1
 				}
 				else
 				{
 					this.Text = "Modify Supplier";
+					lblHeader.Text = "Modify Supplier";
 					if (CurrentSupplier == null)
 					{
 						MessageBox.Show("There is no current supplier", "Modify Error");

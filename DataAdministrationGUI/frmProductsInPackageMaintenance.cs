@@ -245,7 +245,5 @@ namespace DataAdministrationGUI
 			form.packagesProductsSupplier = selectedPackageProductSupplier;
 			return form;
 		}
-
-
-	}
+    }
 }

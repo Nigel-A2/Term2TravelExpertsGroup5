@@ -29,15 +29,17 @@ namespace DataAdministrationGUI
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPackageToHome = new System.Windows.Forms.Button();
             this.btnAddPackage = new System.Windows.Forms.Button();
             this.dgvPackagesDisplay = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackagesDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPackageToHome
             // 
-            this.btnPackageToHome.Location = new System.Drawing.Point(876, 273);
+            this.btnPackageToHome.Location = new System.Drawing.Point(810, 225);
             this.btnPackageToHome.Name = "btnPackageToHome";
             this.btnPackageToHome.Size = new System.Drawing.Size(182, 49);
             this.btnPackageToHome.TabIndex = 2;
@@ -47,7 +49,7 @@ namespace DataAdministrationGUI
             // 
             // btnAddPackage
             // 
-            this.btnAddPackage.Location = new System.Drawing.Point(12, 273);
+            this.btnAddPackage.Location = new System.Drawing.Point(18, 225);
             this.btnAddPackage.Name = "btnAddPackage";
             this.btnAddPackage.Size = new System.Drawing.Size(182, 49);
             this.btnAddPackage.TabIndex = 1;
@@ -59,25 +61,42 @@ namespace DataAdministrationGUI
             // 
             this.dgvPackagesDisplay.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvPackagesDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackagesDisplay.Location = new System.Drawing.Point(12, 12);
+            this.dgvPackagesDisplay.Location = new System.Drawing.Point(18, 47);
             this.dgvPackagesDisplay.Name = "dgvPackagesDisplay";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvPackagesDisplay.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPackagesDisplay.RowTemplate.Height = 25;
-            this.dgvPackagesDisplay.Size = new System.Drawing.Size(1046, 243);
+            this.dgvPackagesDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvPackagesDisplay.Size = new System.Drawing.Size(974, 161);
             this.dgvPackagesDisplay.TabIndex = 2;
             this.dgvPackagesDisplay.TabStop = false;
             this.dgvPackagesDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackagesDisplay_CellClick);
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.label1.Size = new System.Drawing.Size(1037, 45);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Package Maintenance";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmPackageMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnPackageToHome;
-            this.ClientSize = new System.Drawing.Size(1074, 336);
+            this.ClientSize = new System.Drawing.Size(1037, 290);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvPackagesDisplay);
             this.Controls.Add(this.btnAddPackage);
             this.Controls.Add(this.btnPackageToHome);
+            this.MinimizeBox = false;
             this.Name = "frmPackageMaintenance";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Package Maintenance";
             this.Load += new System.EventHandler(this.frmPackageMaintenance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPackagesDisplay)).EndInit();
@@ -90,5 +109,6 @@ namespace DataAdministrationGUI
 		private System.Windows.Forms.Button btnPackageToHome;
 		private System.Windows.Forms.Button btnAddPackage;
 		private System.Windows.Forms.DataGridView dgvPackagesDisplay;
-	}
+        private System.Windows.Forms.Label label1;
+    }
 }

@@ -35,11 +35,12 @@ namespace DataAdministrationGUI
             this.lblProductSupplier = new System.Windows.Forms.Label();
             this.cbxPackage = new System.Windows.Forms.ComboBox();
             this.cbxProductSupplier = new System.Windows.Forms.ComboBox();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(23, 104);
+            this.btnConfirm.Location = new System.Drawing.Point(22, 124);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(169, 49);
             this.btnConfirm.TabIndex = 6;
@@ -50,7 +51,7 @@ namespace DataAdministrationGUI
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(212, 104);
+            this.btnCancel.Location = new System.Drawing.Point(211, 124);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(169, 49);
             this.btnCancel.TabIndex = 7;
@@ -60,7 +61,7 @@ namespace DataAdministrationGUI
             // lblPackageID
             // 
             this.lblPackageID.AutoSize = true;
-            this.lblPackageID.Location = new System.Drawing.Point(66, 31);
+            this.lblPackageID.Location = new System.Drawing.Point(65, 51);
             this.lblPackageID.Name = "lblPackageID";
             this.lblPackageID.Size = new System.Drawing.Size(54, 15);
             this.lblPackageID.TabIndex = 2;
@@ -69,7 +70,7 @@ namespace DataAdministrationGUI
             // lblProductSupplier
             // 
             this.lblProductSupplier.AutoSize = true;
-            this.lblProductSupplier.Location = new System.Drawing.Point(23, 74);
+            this.lblProductSupplier.Location = new System.Drawing.Point(22, 94);
             this.lblProductSupplier.Name = "lblProductSupplier";
             this.lblProductSupplier.Size = new System.Drawing.Size(97, 15);
             this.lblProductSupplier.TabIndex = 3;
@@ -78,7 +79,7 @@ namespace DataAdministrationGUI
             // cbxPackage
             // 
             this.cbxPackage.FormattingEnabled = true;
-            this.cbxPackage.Location = new System.Drawing.Point(126, 28);
+            this.cbxPackage.Location = new System.Drawing.Point(125, 48);
             this.cbxPackage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxPackage.Name = "cbxPackage";
             this.cbxPackage.Size = new System.Drawing.Size(255, 23);
@@ -87,11 +88,23 @@ namespace DataAdministrationGUI
             // cbxProductSupplier
             // 
             this.cbxProductSupplier.FormattingEnabled = true;
-            this.cbxProductSupplier.Location = new System.Drawing.Point(126, 66);
+            this.cbxProductSupplier.Location = new System.Drawing.Point(125, 86);
             this.cbxProductSupplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxProductSupplier.Name = "cbxProductSupplier";
             this.cbxProductSupplier.Size = new System.Drawing.Size(255, 23);
             this.cbxProductSupplier.TabIndex = 9;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHeader.Location = new System.Drawing.Point(0, 0);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.lblHeader.Size = new System.Drawing.Size(402, 45);
+            this.lblHeader.TabIndex = 11;
+            this.lblHeader.Text = "Package Maintenance";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAddModifyProductsToPackage
             // 
@@ -99,14 +112,17 @@ namespace DataAdministrationGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(402, 171);
+            this.ClientSize = new System.Drawing.Size(402, 192);
+            this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.cbxProductSupplier);
             this.Controls.Add(this.cbxPackage);
             this.Controls.Add(this.lblProductSupplier);
             this.Controls.Add(this.lblPackageID);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
+            this.MaximizeBox = false;
             this.Name = "frmAddModifyProductsToPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Package";
             this.Load += new System.EventHandler(this.frmAddModifyProductsToPackage_Load);
             this.ResumeLayout(false);
@@ -122,5 +138,6 @@ namespace DataAdministrationGUI
 		private System.Windows.Forms.Label lblProductSupplier;
         private System.Windows.Forms.ComboBox cbxPackage;
         private System.Windows.Forms.ComboBox cbxProductSupplier;
+        private System.Windows.Forms.Label lblHeader;
     }
 }

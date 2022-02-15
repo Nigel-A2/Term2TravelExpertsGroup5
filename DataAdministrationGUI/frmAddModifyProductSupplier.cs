@@ -29,10 +29,12 @@ namespace DataAdministrationGUI
             if (isAdd)
             {
                 this.Text = "Add Product-Supplier";
+                lblHeader.Text = "Add Product-Supplier";
             }
             else
             {
                 this.Text = "Modify Product-Supplier";
+                lblHeader.Text = "Modify Product-Supplier";
                 if (productSupplier == null)
                 {
                     MessageBox.Show("There is no data of selected product-supplier", "Modify Error");

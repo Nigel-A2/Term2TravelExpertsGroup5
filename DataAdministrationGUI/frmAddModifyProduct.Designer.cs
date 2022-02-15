@@ -35,11 +35,12 @@ namespace DataAdministrationGUI
             this.lblProductId = new System.Windows.Forms.Label();
             this.tbxProductId = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(28, 108);
+            this.btnConfirm.Location = new System.Drawing.Point(22, 128);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(144, 49);
             this.btnConfirm.TabIndex = 3;
@@ -49,7 +50,7 @@ namespace DataAdministrationGUI
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(144, 69);
+            this.tbxProductName.Location = new System.Drawing.Point(138, 89);
             this.tbxProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(188, 23);
@@ -58,7 +59,7 @@ namespace DataAdministrationGUI
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(28, 72);
+            this.lblProductName.Location = new System.Drawing.Point(22, 92);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(85, 15);
             this.lblProductName.TabIndex = 3;
@@ -67,7 +68,7 @@ namespace DataAdministrationGUI
             // lblProductId
             // 
             this.lblProductId.AutoSize = true;
-            this.lblProductId.Location = new System.Drawing.Point(28, 30);
+            this.lblProductId.Location = new System.Drawing.Point(22, 50);
             this.lblProductId.Name = "lblProductId";
             this.lblProductId.Size = new System.Drawing.Size(66, 15);
             this.lblProductId.TabIndex = 4;
@@ -76,7 +77,7 @@ namespace DataAdministrationGUI
             // tbxProductId
             // 
             this.tbxProductId.Enabled = false;
-            this.tbxProductId.Location = new System.Drawing.Point(144, 27);
+            this.tbxProductId.Location = new System.Drawing.Point(138, 47);
             this.tbxProductId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxProductId.Name = "tbxProductId";
             this.tbxProductId.Size = new System.Drawing.Size(188, 23);
@@ -85,12 +86,24 @@ namespace DataAdministrationGUI
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(188, 108);
+            this.btnCancel.Location = new System.Drawing.Point(182, 128);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(144, 49);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHeader.Location = new System.Drawing.Point(0, 0);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Padding = new System.Windows.Forms.Padding(0, 3, 0, 2);
+            this.lblHeader.Size = new System.Drawing.Size(347, 45);
+            this.lblHeader.TabIndex = 10;
+            this.lblHeader.Text = "Product Maintenance";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAddModifyProduct
             // 
@@ -98,13 +111,15 @@ namespace DataAdministrationGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(360, 172);
+            this.ClientSize = new System.Drawing.Size(347, 198);
+            this.Controls.Add(this.lblHeader);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbxProductId);
             this.Controls.Add(this.lblProductId);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.tbxProductName);
             this.Controls.Add(this.btnConfirm);
+            this.MaximizeBox = false;
             this.Name = "frmAddModifyProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add product";
@@ -121,5 +136,6 @@ namespace DataAdministrationGUI
         private System.Windows.Forms.Label lblProductId;
         private System.Windows.Forms.TextBox tbxProductId;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblHeader;
     }
 }

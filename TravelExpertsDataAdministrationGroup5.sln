@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAdministrationGUI", "DataAdministrationGUI\DataAdministrationGUI.csproj", "{C4230DA0-46DF-49EF-936C-1A9C8A638CD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAdministrationGUI", "DataAdministrationGUI\DataAdministrationGUI.csproj", "{C4230DA0-46DF-49EF-936C-1A9C8A638CD7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8B0DF8AB-E31B-45E5-8888-58364FE79B66} = {8B0DF8AB-E31B-45E5-8888-58364FE79B66}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAdministrationData", "DataAdministrationData\DataAdministrationData.csproj", "{8B0DF8AB-E31B-45E5-8888-58364FE79B66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{C4230DA0-46DF-49EF-936C-1A9C8A638CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4230DA0-46DF-49EF-936C-1A9C8A638CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4230DA0-46DF-49EF-936C-1A9C8A638CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0DF8AB-E31B-45E5-8888-58364FE79B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0DF8AB-E31B-45E5-8888-58364FE79B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0DF8AB-E31B-45E5-8888-58364FE79B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0DF8AB-E31B-45E5-8888-58364FE79B66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

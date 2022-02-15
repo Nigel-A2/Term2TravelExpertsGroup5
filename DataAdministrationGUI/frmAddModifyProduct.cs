@@ -1,7 +1,6 @@
 ﻿using DataAdministrationGUI.Models;
 using System;
 using System.Windows.Forms;
-
 // written by: Filip
 namespace DataAdministrationGUI
 {
@@ -21,11 +20,13 @@ namespace DataAdministrationGUI
             if (isAdd)
             {
                 this.Text = "Add Product";
+                lblHeader.Text = "Add Product";
                 tbxProductId.Text = "ID is generated automatically";
             }
             else
             {
                 this.Text = "Modify Product";
+                lblHeader.Text = "Modify Product";
                 if (product == null)
                 {
                     MessageBox.Show("There is no data of selected product", "Modify Error");

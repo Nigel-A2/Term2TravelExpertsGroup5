@@ -34,10 +34,12 @@ namespace DataAdministrationGUI
             if (isAdd)
             {
                 this.Text = "Add product to package";
+                lblHeader.Text = "Add product to package";
             }
             else
             {
                 this.Text = "Modify product in package";
+                lblHeader.Text = "Modify product in package";
                 if (packagesProductsSupplier == null)
                 {
                     MessageBox.Show("There is no data of selected package-product-supplier", "Modify Error");

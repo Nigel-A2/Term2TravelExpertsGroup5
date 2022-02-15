@@ -34,11 +34,14 @@ namespace DataAdministrationGUI
 				if (isAdd)
 				{
 					this.Text = "Add Package";
+					lblHeader.Text = "Add Package";
 					txtPackageID.ReadOnly = true; // packageID seems to auto-increment
+					txtPackageID.Text = "Generated automatically";
 				}
 				else
 				{
 					this.Text = "Modify Package";
+					lblHeader.Text = "Modify Package";
 					if (CurrentPackage == null)
 					{
 						MessageBox.Show("There is no selected package", "Modify Error");

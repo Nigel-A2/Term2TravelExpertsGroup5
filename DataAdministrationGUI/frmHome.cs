@@ -49,5 +49,10 @@ namespace DataAdministrationGUI
 			var productSupplierForm = new frmProductSupplierMaintenance();
 			DialogResult result = productSupplierForm.ShowDialog();
 		}
-	}
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
