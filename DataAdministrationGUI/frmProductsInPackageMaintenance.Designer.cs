@@ -29,6 +29,9 @@ namespace DataAdministrationGUI
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.dgvProductsPackagesDisplay = new System.Windows.Forms.DataGridView();
@@ -37,10 +40,9 @@ namespace DataAdministrationGUI
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(819, 75);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(26, 295);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(181, 57);
+            this.btnAdd.Size = new System.Drawing.Size(182, 49);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -49,10 +51,9 @@ namespace DataAdministrationGUI
             // btnHome
             // 
             this.btnHome.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHome.Location = new System.Drawing.Point(819, 452);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHome.Location = new System.Drawing.Point(396, 295);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(179, 64);
+            this.btnHome.Size = new System.Drawing.Size(182, 49);
             this.btnHome.TabIndex = 4;
             this.btnHome.Text = "Cancel";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -61,26 +62,40 @@ namespace DataAdministrationGUI
             // 
             this.dgvProductsPackagesDisplay.AllowUserToAddRows = false;
             this.dgvProductsPackagesDisplay.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvProductsPackagesDisplay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProductsPackagesDisplay.BackgroundColor = System.Drawing.Color.DarkGray;
             this.dgvProductsPackagesDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductsPackagesDisplay.Location = new System.Drawing.Point(30, 41);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductsPackagesDisplay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProductsPackagesDisplay.Location = new System.Drawing.Point(26, 31);
+            this.dgvProductsPackagesDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProductsPackagesDisplay.Name = "dgvProductsPackagesDisplay";
             this.dgvProductsPackagesDisplay.ReadOnly = true;
             this.dgvProductsPackagesDisplay.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProductsPackagesDisplay.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProductsPackagesDisplay.RowTemplate.Height = 29;
-            this.dgvProductsPackagesDisplay.Size = new System.Drawing.Size(757, 510);
+            this.dgvProductsPackagesDisplay.Size = new System.Drawing.Size(552, 247);
             this.dgvProductsPackagesDisplay.TabIndex = 5;
             this.dgvProductsPackagesDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductDisplay_CellClick);
             // 
             // frmProductsInPackageMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnHome;
-            this.ClientSize = new System.Drawing.Size(1226, 603);
+            this.ClientSize = new System.Drawing.Size(603, 364);
             this.Controls.Add(this.dgvProductsPackagesDisplay);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmProductsInPackageMaintenance";
             this.Text = "Products Inside Packages";
             this.Load += new System.EventHandler(this.frmProductsInsidePackage_Load);

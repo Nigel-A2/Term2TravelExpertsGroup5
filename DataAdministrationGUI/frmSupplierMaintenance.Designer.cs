@@ -37,7 +37,7 @@ namespace DataAdministrationGUI
             // 
             // btnSuppliersToHome
             // 
-            this.btnSuppliersToHome.Location = new System.Drawing.Point(728, 485);
+            this.btnSuppliersToHome.Location = new System.Drawing.Point(431, 347);
             this.btnSuppliersToHome.Name = "btnSuppliersToHome";
             this.btnSuppliersToHome.Size = new System.Drawing.Size(182, 49);
             this.btnSuppliersToHome.TabIndex = 2;
@@ -47,7 +47,7 @@ namespace DataAdministrationGUI
             // 
             // btnAddSupplier
             // 
-            this.btnAddSupplier.Location = new System.Drawing.Point(728, 418);
+            this.btnAddSupplier.Location = new System.Drawing.Point(12, 347);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(182, 49);
             this.btnAddSupplier.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace DataAdministrationGUI
             this.dgvSuppliers.Location = new System.Drawing.Point(12, 14);
             this.dgvSuppliers.Name = "dgvSuppliers";
             this.dgvSuppliers.RowTemplate.Height = 25;
-            this.dgvSuppliers.Size = new System.Drawing.Size(710, 520);
+            this.dgvSuppliers.Size = new System.Drawing.Size(601, 316);
             this.dgvSuppliers.TabIndex = 5;
             this.dgvSuppliers.TabStop = false;
             this.dgvSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSuppliers_CellClick);
@@ -71,7 +71,7 @@ namespace DataAdministrationGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSuppliersToHome;
-            this.ClientSize = new System.Drawing.Size(922, 553);
+            this.ClientSize = new System.Drawing.Size(625, 411);
             this.Controls.Add(this.dgvSuppliers);
             this.Controls.Add(this.btnAddSupplier);
             this.Controls.Add(this.btnSuppliersToHome);

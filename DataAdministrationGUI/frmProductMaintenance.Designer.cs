@@ -39,20 +39,18 @@ namespace DataAdministrationGUI
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(507, 433);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(233, 289);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(162, 49);
+            this.btnCancel.Size = new System.Drawing.Size(182, 49);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(507, 59);
-            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddProduct.Location = new System.Drawing.Point(31, 289);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(162, 49);
+            this.btnAddProduct.Size = new System.Drawing.Size(182, 49);
             this.btnAddProduct.TabIndex = 1;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -62,9 +60,9 @@ namespace DataAdministrationGUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(130, 9);
+            this.label1.Location = new System.Drawing.Point(114, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 35);
+            this.label1.Size = new System.Drawing.Size(198, 28);
             this.label1.TabIndex = 5;
             this.label1.Text = "Product Maintenance";
             // 
@@ -72,27 +70,28 @@ namespace DataAdministrationGUI
             // 
             this.dgvProductDisplay.AllowUserToAddRows = false;
             this.dgvProductDisplay.AllowUserToDeleteRows = false;
+            this.dgvProductDisplay.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvProductDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductDisplay.Location = new System.Drawing.Point(35, 59);
+            this.dgvProductDisplay.Location = new System.Drawing.Point(31, 44);
+            this.dgvProductDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProductDisplay.Name = "dgvProductDisplay";
             this.dgvProductDisplay.ReadOnly = true;
             this.dgvProductDisplay.RowHeadersWidth = 51;
             this.dgvProductDisplay.RowTemplate.Height = 29;
-            this.dgvProductDisplay.Size = new System.Drawing.Size(456, 423);
+            this.dgvProductDisplay.Size = new System.Drawing.Size(384, 229);
             this.dgvProductDisplay.TabIndex = 6;
             this.dgvProductDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductDisplay_CellClick);
             // 
             // frmProductMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(758, 533);
+            this.ClientSize = new System.Drawing.Size(441, 359);
             this.Controls.Add(this.dgvProductDisplay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.btnCancel);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmProductMaintenance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Product Maintenance";

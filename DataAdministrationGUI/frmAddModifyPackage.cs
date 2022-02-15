@@ -48,8 +48,8 @@ namespace DataAdministrationGUI
 					// why did I not realize Convert.ToString was the solution to this problem in lab 3...
 					txtPackageID.Text = Convert.ToString(CurrentPackage.PackageId); // int to string
 					txtPkgName.Text = CurrentPackage.PkgName;
-					txtPkgStartDate.Text = Convert.ToString(CurrentPackage.PkgStartDate); // DateTime to string
-					txtPkgEndDate.Text = Convert.ToString(CurrentPackage.PkgEndDate); // DateTime to string
+					dtpStartDate.Value = (DateTime)CurrentPackage.PkgStartDate; // DateTime to string
+					dtpEndDate.Value = (DateTime)CurrentPackage.PkgEndDate; // DateTime to string
 					txtPkgDesc.Text = CurrentPackage.PkgDesc;
 					txtPkgBasePrice.Text = Convert.ToString(CurrentPackage.PkgBasePrice); // decimal to string
 					txtPkgAgencyCommission.Text = Convert.ToString(CurrentPackage.PkgAgencyCommission); // decimal to string
@@ -67,8 +67,6 @@ namespace DataAdministrationGUI
 		{
 			if (
 				Validator.IsPresent(txtPkgName) &&
-				Validator.IsPresent(txtPkgStartDate) &&
-				Validator.IsPresent(txtPkgEndDate) &&
 				Validator.IsPresent(txtPkgDesc) &&
 				Validator.IsNonNegativeDecimal(txtPkgBasePrice) &&
 				Validator.IsNonNegativeDecimal(txtPkgAgencyCommission))
@@ -83,8 +81,8 @@ namespace DataAdministrationGUI
 				// put data from the form into the package object
 				//CurrentPackage.PackageId = Convert.ToInt32(txtPackageID.Text);
 				CurrentPackage.PkgName = txtPkgName.Text;
-				CurrentPackage.PkgStartDate = Convert.ToDateTime(txtPkgStartDate.Text);
-				CurrentPackage.PkgEndDate = Convert.ToDateTime(txtPkgEndDate.Text);
+				CurrentPackage.PkgStartDate = dtpStartDate.Value;
+				CurrentPackage.PkgEndDate = dtpEndDate.Value;
 				CurrentPackage.PkgDesc = txtPkgDesc.Text;
 				CurrentPackage.PkgBasePrice = Convert.ToDecimal(txtPkgBasePrice.Text);
 				CurrentPackage.PkgAgencyCommission = Convert.ToDecimal(txtPkgAgencyCommission.Text);
@@ -101,5 +99,5 @@ namespace DataAdministrationGUI
 				}
 			}
 		}
-	}
+    }
 }

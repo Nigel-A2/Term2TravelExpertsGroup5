@@ -39,9 +39,9 @@ namespace DataAdministrationGUI
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(45, 104);
+            this.btnConfirm.Location = new System.Drawing.Point(28, 108);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(138, 38);
+            this.btnConfirm.Size = new System.Drawing.Size(144, 49);
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -49,7 +49,7 @@ namespace DataAdministrationGUI
             // 
             // tbxProductName
             // 
-            this.tbxProductName.Location = new System.Drawing.Point(161, 57);
+            this.tbxProductName.Location = new System.Drawing.Point(144, 69);
             this.tbxProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(188, 23);
@@ -58,7 +58,7 @@ namespace DataAdministrationGUI
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
-            this.lblProductName.Location = new System.Drawing.Point(45, 59);
+            this.lblProductName.Location = new System.Drawing.Point(28, 72);
             this.lblProductName.Name = "lblProductName";
             this.lblProductName.Size = new System.Drawing.Size(85, 15);
             this.lblProductName.TabIndex = 3;
@@ -67,16 +67,16 @@ namespace DataAdministrationGUI
             // lblProductId
             // 
             this.lblProductId.AutoSize = true;
-            this.lblProductId.Location = new System.Drawing.Point(45, 33);
+            this.lblProductId.Location = new System.Drawing.Point(28, 30);
             this.lblProductId.Name = "lblProductId";
-            this.lblProductId.Size = new System.Drawing.Size(65, 15);
+            this.lblProductId.Size = new System.Drawing.Size(66, 15);
             this.lblProductId.TabIndex = 4;
-            this.lblProductId.Text = "Product id:";
+            this.lblProductId.Text = "Product ID:";
             // 
             // tbxProductId
             // 
             this.tbxProductId.Enabled = false;
-            this.tbxProductId.Location = new System.Drawing.Point(161, 31);
+            this.tbxProductId.Location = new System.Drawing.Point(144, 27);
             this.tbxProductId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxProductId.Name = "tbxProductId";
             this.tbxProductId.Size = new System.Drawing.Size(188, 23);
@@ -85,18 +85,20 @@ namespace DataAdministrationGUI
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(210, 104);
+            this.btnCancel.Location = new System.Drawing.Point(188, 108);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(138, 38);
+            this.btnCancel.Size = new System.Drawing.Size(144, 49);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // frmAddModifyProduct
             // 
+            this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 191);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(360, 172);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.tbxProductId);
             this.Controls.Add(this.lblProductId);

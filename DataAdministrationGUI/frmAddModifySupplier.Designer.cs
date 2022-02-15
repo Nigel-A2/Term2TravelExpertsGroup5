@@ -39,9 +39,9 @@ namespace DataAdministrationGUI
             // 
             // btnCancelSupplier
             // 
-            this.btnCancelSupplier.Location = new System.Drawing.Point(259, 238);
+            this.btnCancelSupplier.Location = new System.Drawing.Point(219, 107);
             this.btnCancelSupplier.Name = "btnCancelSupplier";
-            this.btnCancelSupplier.Size = new System.Drawing.Size(185, 38);
+            this.btnCancelSupplier.Size = new System.Drawing.Size(182, 49);
             this.btnCancelSupplier.TabIndex = 3;
             this.btnCancelSupplier.Text = "Cancel";
             this.btnCancelSupplier.UseVisualStyleBackColor = true;
@@ -50,7 +50,7 @@ namespace DataAdministrationGUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 49);
+            this.label1.Location = new System.Drawing.Point(41, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace DataAdministrationGUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 112);
+            this.label2.Location = new System.Drawing.Point(20, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 15);
             this.label2.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace DataAdministrationGUI
             // 
             // txtSupplierID
             // 
-            this.txtSupplierID.Location = new System.Drawing.Point(165, 49);
+            this.txtSupplierID.Location = new System.Drawing.Point(122, 28);
             this.txtSupplierID.Name = "txtSupplierID";
             this.txtSupplierID.ReadOnly = true;
             this.txtSupplierID.Size = new System.Drawing.Size(119, 23);
@@ -75,7 +75,7 @@ namespace DataAdministrationGUI
             // 
             // txtSupplierName
             // 
-            this.txtSupplierName.Location = new System.Drawing.Point(165, 112);
+            this.txtSupplierName.Location = new System.Drawing.Point(122, 68);
             this.txtSupplierName.MaxLength = 255;
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(279, 23);
@@ -84,9 +84,9 @@ namespace DataAdministrationGUI
             // 
             // btnConfirmModify
             // 
-            this.btnConfirmModify.Location = new System.Drawing.Point(259, 179);
+            this.btnConfirmModify.Location = new System.Drawing.Point(20, 107);
             this.btnConfirmModify.Name = "btnConfirmModify";
-            this.btnConfirmModify.Size = new System.Drawing.Size(185, 41);
+            this.btnConfirmModify.Size = new System.Drawing.Size(182, 49);
             this.btnConfirmModify.TabIndex = 2;
             this.btnConfirmModify.Text = "Confirm";
             this.btnConfirmModify.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@ namespace DataAdministrationGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelSupplier;
-            this.ClientSize = new System.Drawing.Size(464, 299);
+            this.ClientSize = new System.Drawing.Size(424, 176);
             this.Controls.Add(this.btnConfirmModify);
             this.Controls.Add(this.txtSupplierName);
             this.Controls.Add(this.txtSupplierID);

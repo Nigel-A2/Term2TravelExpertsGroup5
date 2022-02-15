@@ -37,9 +37,9 @@ namespace DataAdministrationGUI
             // 
             // btnPackageToHome
             // 
-            this.btnPackageToHome.Location = new System.Drawing.Point(844, 362);
+            this.btnPackageToHome.Location = new System.Drawing.Point(876, 273);
             this.btnPackageToHome.Name = "btnPackageToHome";
-            this.btnPackageToHome.Size = new System.Drawing.Size(144, 40);
+            this.btnPackageToHome.Size = new System.Drawing.Size(182, 49);
             this.btnPackageToHome.TabIndex = 2;
             this.btnPackageToHome.Text = "Home";
             this.btnPackageToHome.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@ namespace DataAdministrationGUI
             // 
             // btnAddPackage
             // 
-            this.btnAddPackage.Location = new System.Drawing.Point(660, 362);
+            this.btnAddPackage.Location = new System.Drawing.Point(12, 273);
             this.btnAddPackage.Name = "btnAddPackage";
-            this.btnAddPackage.Size = new System.Drawing.Size(155, 40);
+            this.btnAddPackage.Size = new System.Drawing.Size(182, 49);
             this.btnAddPackage.TabIndex = 1;
             this.btnAddPackage.Text = "Add package";
             this.btnAddPackage.UseVisualStyleBackColor = true;
@@ -57,11 +57,12 @@ namespace DataAdministrationGUI
             // 
             // dgvPackagesDisplay
             // 
+            this.dgvPackagesDisplay.BackgroundColor = System.Drawing.Color.LightGray;
             this.dgvPackagesDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPackagesDisplay.Location = new System.Drawing.Point(12, 86);
+            this.dgvPackagesDisplay.Location = new System.Drawing.Point(12, 12);
             this.dgvPackagesDisplay.Name = "dgvPackagesDisplay";
             this.dgvPackagesDisplay.RowTemplate.Height = 25;
-            this.dgvPackagesDisplay.Size = new System.Drawing.Size(976, 243);
+            this.dgvPackagesDisplay.Size = new System.Drawing.Size(1046, 243);
             this.dgvPackagesDisplay.TabIndex = 2;
             this.dgvPackagesDisplay.TabStop = false;
             this.dgvPackagesDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPackagesDisplay_CellClick);
@@ -71,7 +72,7 @@ namespace DataAdministrationGUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnPackageToHome;
-            this.ClientSize = new System.Drawing.Size(1000, 425);
+            this.ClientSize = new System.Drawing.Size(1074, 336);
             this.Controls.Add(this.dgvPackagesDisplay);
             this.Controls.Add(this.btnAddPackage);
             this.Controls.Add(this.btnPackageToHome);

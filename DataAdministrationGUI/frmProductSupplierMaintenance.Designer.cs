@@ -37,10 +37,9 @@ namespace DataAdministrationGUI
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(303, 464);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(24, 291);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(241, 55);
+            this.btnAdd.Size = new System.Drawing.Size(182, 49);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -49,10 +48,9 @@ namespace DataAdministrationGUI
             // btnHome
             // 
             this.btnHome.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHome.Location = new System.Drawing.Point(617, 464);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHome.Location = new System.Drawing.Point(450, 291);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(241, 55);
+            this.btnHome.Size = new System.Drawing.Size(182, 49);
             this.btnHome.TabIndex = 4;
             this.btnHome.Text = "Cancel";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -62,24 +60,24 @@ namespace DataAdministrationGUI
             this.dgvProductSupplierDisplay.AllowUserToAddRows = false;
             this.dgvProductSupplierDisplay.AllowUserToDeleteRows = false;
             this.dgvProductSupplierDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductSupplierDisplay.Location = new System.Drawing.Point(27, 25);
+            this.dgvProductSupplierDisplay.Location = new System.Drawing.Point(24, 19);
+            this.dgvProductSupplierDisplay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProductSupplierDisplay.Name = "dgvProductSupplierDisplay";
             this.dgvProductSupplierDisplay.ReadOnly = true;
             this.dgvProductSupplierDisplay.RowHeadersWidth = 51;
             this.dgvProductSupplierDisplay.RowTemplate.Height = 29;
-            this.dgvProductSupplierDisplay.Size = new System.Drawing.Size(831, 397);
+            this.dgvProductSupplierDisplay.Size = new System.Drawing.Size(608, 256);
             this.dgvProductSupplierDisplay.TabIndex = 8;
             this.dgvProductSupplierDisplay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductDisplay_CellClick);
             // 
             // frmProductSupplierMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 569);
+            this.ClientSize = new System.Drawing.Size(659, 357);
             this.Controls.Add(this.dgvProductSupplierDisplay);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmProductSupplierMaintenance";
             this.Text = "frmProductSupplierMaintenance";
             this.Load += new System.EventHandler(this.frmProductSupplierMaintenance_Load);
