@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace DataAdministrationGUI.Models
+namespace DataAdministrationData.Models
 {
     public partial class TravelExpertsContext : DbContext
     {

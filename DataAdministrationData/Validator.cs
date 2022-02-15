@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace DataAdministrationGUI
+namespace DataAdministrationData
 {
     /// <summary>
     /// a repository of user input validation methods for Windows Forms projects

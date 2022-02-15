@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAdministrationGUI.Models;
+using DataAdministrationData.Models;
 using Microsoft.Data.SqlClient; 
 using Microsoft.EntityFrameworkCore;
 

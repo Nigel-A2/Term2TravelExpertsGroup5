@@ -3,7 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using DataAdministrationGUI.Models;
+using DataAdministrationData.Models;
 using Microsoft.Data.SqlClient; // ADO.NET provider for SQL Server 
 using Microsoft.EntityFrameworkCore;
 

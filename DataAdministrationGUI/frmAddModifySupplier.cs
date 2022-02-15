@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAdministrationGUI.Models;
+using DataAdministrationData.Models;
+using DataAdministrationData;
 
 namespace DataAdministrationGUI
 {
@@ -15,7 +16,7 @@ namespace DataAdministrationGUI
 	{
 		public int newID;
 		public bool isAdd; // True = Add form, False = Modify form
-		public Models.Supplier CurrentSupplier { get; set; }
+		public Supplier CurrentSupplier { get; set; }
 		public frmAddModifySupplier()
 		{
 			InitializeComponent();

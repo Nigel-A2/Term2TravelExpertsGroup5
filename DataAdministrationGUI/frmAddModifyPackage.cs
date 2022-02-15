@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using DataAdministrationGUI.Models;
+using DataAdministrationData.Models;
+using DataAdministrationData;
 
 // written by: Nigel
 namespace DataAdministrationGUI
@@ -8,7 +9,7 @@ namespace DataAdministrationGUI
 	public partial class frmAddModifyPackage : Form
 	{
 		// public data - main form needs access to it
-		public Models.Package CurrentPackage { get; set; }
+		public Package CurrentPackage { get; set; }
 		public bool isAdd; // true - Add, false - Modify
 
 		public frmAddModifyPackage()
