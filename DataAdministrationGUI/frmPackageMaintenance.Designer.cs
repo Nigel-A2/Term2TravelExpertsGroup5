@@ -59,6 +59,8 @@ namespace DataAdministrationGUI
 			// 
 			// dgvPackagesDisplay
 			// 
+			this.dgvPackagesDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvPackagesDisplay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dgvPackagesDisplay.BackgroundColor = System.Drawing.Color.LightGray;
 			this.dgvPackagesDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvPackagesDisplay.Location = new System.Drawing.Point(18, 47);
