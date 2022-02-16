@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace DataAdministrationGUI.Models
+namespace DataAdministrationData.Models
 {
     [Index(nameof(AgentId), Name = "EmployeesCustomers")]
     public partial class Customer

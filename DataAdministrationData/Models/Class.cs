@@ -6,22 +6,25 @@ using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace DataAdministrationGUI.Models
+namespace DataAdministrationData.Models
 {
-    public partial class Region
+    public partial class Class
     {
-        public Region()
+        public Class()
         {
             BookingDetails = new HashSet<BookingDetail>();
         }
 
         [Key]
         [StringLength(5)]
-        public string RegionId { get; set; }
-        [StringLength(25)]
-        public string RegionName { get; set; }
+        public string ClassId { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string ClassName { get; set; }
+        [StringLength(50)]
+        public string ClassDesc { get; set; }
 
-        [InverseProperty(nameof(BookingDetail.Region))]
+        [InverseProperty(nameof(BookingDetail.Class))]
         public virtual ICollection<BookingDetail> BookingDetails { get; set; }
     }
 }

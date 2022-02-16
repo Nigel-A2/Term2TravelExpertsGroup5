@@ -1,4 +1,4 @@
-﻿using DataAdministrationGUI.Models;
+﻿using DataAdministrationData.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAdministrationData;
 
 namespace DataAdministrationGUI
 {
@@ -34,10 +35,12 @@ namespace DataAdministrationGUI
             if (isAdd)
             {
                 this.Text = "Add product to package";
+                lblHeader.Text = "Add product to package";
             }
             else
             {
                 this.Text = "Modify product in package";
+                lblHeader.Text = "Modify product in package";
                 if (packagesProductsSupplier == null)
                 {
                     MessageBox.Show("There is no data of selected package-product-supplier", "Modify Error");

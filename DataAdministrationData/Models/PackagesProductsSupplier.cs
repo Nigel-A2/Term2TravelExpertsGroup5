@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace DataAdministrationGUI.Models
+namespace DataAdministrationData.Models
 {
     [Table("Packages_Products_Suppliers")]
     [Index(nameof(PackageId), Name = "PackagesPackages_Products_Suppliers")]

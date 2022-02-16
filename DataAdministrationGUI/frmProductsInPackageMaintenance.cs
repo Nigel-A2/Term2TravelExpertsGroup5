@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataAdministrationGUI.Models;
+using DataAdministrationData.Models;
 
 namespace DataAdministrationGUI
 {
@@ -245,7 +245,5 @@ namespace DataAdministrationGUI
 			form.packagesProductsSupplier = selectedPackageProductSupplier;
 			return form;
 		}
-
-
-	}
+    }
 }

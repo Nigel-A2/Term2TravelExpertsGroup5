@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAdministrationGUI.Models
+namespace DataAdministrationData.Models
 {
     public class PackageDisplayObject
     {
