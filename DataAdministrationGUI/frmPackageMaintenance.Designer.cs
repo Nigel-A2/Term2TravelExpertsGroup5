@@ -95,6 +95,7 @@ namespace DataAdministrationGUI
 			this.Controls.Add(this.dgvPackagesDisplay);
 			this.Controls.Add(this.btnAddPackage);
 			this.Controls.Add(this.btnPackageToHome);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MinimizeBox = false;
 			this.Name = "frmPackageMaintenance";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
