@@ -65,10 +65,6 @@ namespace DataAdministrationGUI
                     MessageBox.Show("error while adding a supplier: " + ex.Message, ex.GetType().ToString());
                 }
             }
-            else
-			{
-				this.Close();
-			}
 
 			DisplaySuppliers();
 

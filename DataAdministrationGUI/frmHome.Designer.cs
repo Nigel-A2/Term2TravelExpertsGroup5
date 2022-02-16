@@ -45,7 +45,7 @@ namespace DataAdministrationGUI
             this.btnPackages.Location = new System.Drawing.Point(221, 185);
             this.btnPackages.Name = "btnPackages";
             this.btnPackages.Size = new System.Drawing.Size(182, 49);
-            this.btnPackages.TabIndex = 3;
+            this.btnPackages.TabIndex = 2;
             this.btnPackages.Text = "Packages";
             this.btnPackages.UseVisualStyleBackColor = true;
             this.btnPackages.Click += new System.EventHandler(this.btnPackages_Click);
@@ -55,7 +55,7 @@ namespace DataAdministrationGUI
             this.btnSuppliers.Location = new System.Drawing.Point(419, 185);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(182, 49);
-            this.btnSuppliers.TabIndex = 2;
+            this.btnSuppliers.TabIndex = 3;
             this.btnSuppliers.Text = "Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = true;
             this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
@@ -107,7 +107,7 @@ namespace DataAdministrationGUI
             this.btnProductSuppliers.Location = new System.Drawing.Point(221, 251);
             this.btnProductSuppliers.Name = "btnProductSuppliers";
             this.btnProductSuppliers.Size = new System.Drawing.Size(182, 49);
-            this.btnProductSuppliers.TabIndex = 4;
+            this.btnProductSuppliers.TabIndex = 5;
             this.btnProductSuppliers.Text = "Product suppliers";
             this.btnProductSuppliers.UseVisualStyleBackColor = true;
             this.btnProductSuppliers.Click += new System.EventHandler(this.btnProductSuppliers_Click);
@@ -117,7 +117,7 @@ namespace DataAdministrationGUI
             this.btnPackageProducts.Location = new System.Drawing.Point(22, 251);
             this.btnPackageProducts.Name = "btnPackageProducts";
             this.btnPackageProducts.Size = new System.Drawing.Size(182, 49);
-            this.btnPackageProducts.TabIndex = 5;
+            this.btnPackageProducts.TabIndex = 4;
             this.btnPackageProducts.Text = "Package products";
             this.btnPackageProducts.UseVisualStyleBackColor = true;
             this.btnPackageProducts.Click += new System.EventHandler(this.btnPackageProducts_Click);
