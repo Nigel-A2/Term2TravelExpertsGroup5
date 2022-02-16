@@ -36,7 +36,7 @@ namespace DataAdministrationGUI
 				{
 					this.Text = "Add Package";
 					lblHeader.Text = "Add Package";
-					txtPackageID.ReadOnly = true; // packageID seems to auto-increment
+					txtPackageID.ReadOnly = true; // packageID auto-increments
 					txtPackageID.Text = "Generated automatically";
 				}
 				else
@@ -83,7 +83,6 @@ namespace DataAdministrationGUI
 					CurrentPackage = new Package();
 				}
 				// put data from the form into the package object
-				//CurrentPackage.PackageId = Convert.ToInt32(txtPackageID.Text);
 				CurrentPackage.PkgName = txtPkgName.Text;
 				CurrentPackage.PkgStartDate = dtpStartDate.Value;
 				CurrentPackage.PkgEndDate = dtpEndDate.Value;

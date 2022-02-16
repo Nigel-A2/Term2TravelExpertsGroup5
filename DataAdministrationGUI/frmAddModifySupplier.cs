@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAdministrationData.Models;
 using DataAdministrationData;
 
+/// <summary>  Author: William Rust -- January 26, 2022
+/// 
+/// </summary>
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifySupplier : Form
