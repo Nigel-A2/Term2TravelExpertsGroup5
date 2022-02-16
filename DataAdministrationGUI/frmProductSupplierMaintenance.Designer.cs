@@ -68,6 +68,7 @@ namespace DataAdministrationGUI
 			this.dgvProductSupplierDisplay.Name = "dgvProductSupplierDisplay";
 			this.dgvProductSupplierDisplay.ReadOnly = true;
 			this.dgvProductSupplierDisplay.RowHeadersWidth = 51;
+			this.dgvProductSupplierDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.dgvProductSupplierDisplay.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvProductSupplierDisplay.RowTemplate.Height = 29;

@@ -63,6 +63,7 @@ namespace DataAdministrationGUI
 			this.dgvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvSuppliers.Location = new System.Drawing.Point(21, 51);
 			this.dgvSuppliers.Name = "dgvSuppliers";
+			this.dgvSuppliers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.dgvSuppliers.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvSuppliers.RowTemplate.Height = 25;
