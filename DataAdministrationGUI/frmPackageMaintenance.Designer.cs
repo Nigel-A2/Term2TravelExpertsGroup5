@@ -59,10 +59,13 @@ namespace DataAdministrationGUI
 			// 
 			// dgvPackagesDisplay
 			// 
+			this.dgvPackagesDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvPackagesDisplay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dgvPackagesDisplay.BackgroundColor = System.Drawing.Color.LightGray;
 			this.dgvPackagesDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvPackagesDisplay.Location = new System.Drawing.Point(18, 47);
 			this.dgvPackagesDisplay.Name = "dgvPackagesDisplay";
+			this.dgvPackagesDisplay.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.dgvPackagesDisplay.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvPackagesDisplay.RowTemplate.Height = 25;
@@ -95,6 +98,7 @@ namespace DataAdministrationGUI
 			this.Controls.Add(this.dgvPackagesDisplay);
 			this.Controls.Add(this.btnAddPackage);
 			this.Controls.Add(this.btnPackageToHome);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MinimizeBox = false;
 			this.Name = "frmPackageMaintenance";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
