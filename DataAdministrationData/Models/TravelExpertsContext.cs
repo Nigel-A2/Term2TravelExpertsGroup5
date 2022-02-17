@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -43,12 +42,14 @@ namespace DataAdministrationData.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["TravelExpertsConnection"].ConnectionString);
+                optionsBuilder.UseSqlServer("Data Source=localhost\\sqlexpress;Initial Catalog=TravelExperts;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
             modelBuilder.Entity<Affiliation>(entity =>
             {
                 entity.HasKey(e => e.AffilitationId)
@@ -150,6 +151,8 @@ namespace DataAdministrationData.Models
                     .HasName("aaaaaCustomers_PK")
                     .IsClustered(false);
 
+                entity.Property(e => e.CustPassword).HasDefaultValueSql("(N'password123')");
+
                 entity.HasOne(d => d.Agent)
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.AgentId)
@@ -200,14 +203,12 @@ namespace DataAdministrationData.Models
                 entity.HasOne(d => d.Package)
                     .WithMany(p => p.PackagesProductsSuppliers)
                     .HasForeignKey(d => d.PackageId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Packages_Products_Supplie_FK00");
+                    .HasConstraintName("Packages_Products_Suppliers_FK00");
 
                 entity.HasOne(d => d.ProductSupplier)
                     .WithMany(p => p.PackagesProductsSuppliers)
                     .HasForeignKey(d => d.ProductSupplierId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("Packages_Products_Supplie_FK01");
+                    .HasConstraintName("Packages_Products_Suppliers_FK01");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -228,11 +229,13 @@ namespace DataAdministrationData.Models
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductsSuppliers)
                     .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Products_Suppliers_FK00");
 
                 entity.HasOne(d => d.Supplier)
                     .WithMany(p => p.ProductsSuppliers)
                     .HasForeignKey(d => d.SupplierId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Products_Suppliers_FK01");
             });
 

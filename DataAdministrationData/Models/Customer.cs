@@ -49,6 +49,9 @@ namespace DataAdministrationData.Models
         [StringLength(50)]
         public string CustEmail { get; set; }
         public int? AgentId { get; set; }
+        [Required]
+        [StringLength(20)]
+        public string CustPassword { get; set; }
 
         [ForeignKey(nameof(AgentId))]
         [InverseProperty("Customers")]

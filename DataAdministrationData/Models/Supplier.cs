@@ -26,7 +26,5 @@ namespace DataAdministrationData.Models
         public virtual ICollection<ProductsSupplier> ProductsSuppliers { get; set; }
         [InverseProperty(nameof(SupplierContact.Supplier))]
         public virtual ICollection<SupplierContact> SupplierContacts { get; set; }
-
-       
     }
 }
