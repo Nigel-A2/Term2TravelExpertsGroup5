@@ -32,7 +32,7 @@ ADD CONSTRAINT Products_Suppliers_FK01
     ON DELETE CASCADE ON UPDATE CASCADE;
 
     ALTER TABLE Packages_Products_Suppliers
-DROP CONSTRAINT Packages_Products_Suppliers_FK01;
+DROP CONSTRAINT Packages_Products_Supplie_FK01;
 
 ALTER TABLE Packages_Products_Suppliers
 ADD CONSTRAINT Packages_Products_Suppliers_FK01
