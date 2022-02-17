@@ -39,3 +39,12 @@ ADD CONSTRAINT Packages_Products_Suppliers_FK01
     FOREIGN KEY (ProductSupplierId)
     REFERENCES Products_Suppliers(ProductSupplierId)
     ON DELETE CASCADE ON UPDATE CASCADE;
+    
+ALTER TABLE Packages_Products_Suppliers
+DROP CONSTRAINT Packages_Products_Supplie_FK00;
+
+ALTER TABLE Packages_Products_Suppliers
+ADD CONSTRAINT Packages_Products_Suppliers_FK00
+    FOREIGN KEY (PackageId)
+    REFERENCES Packages(PackageId)
+    ON DELETE CASCADE ON UPDATE CASCADE;
