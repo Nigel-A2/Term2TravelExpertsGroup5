@@ -7,12 +7,12 @@ using System.Linq;
 using System.Windows.Forms;
 using DataAdministrationData;
 
-// Author: Filip
+// Author: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyProductsToPackage : Form
 	{
-
+        //determine if form is supposed to add or modify
 		public bool isAdd;
         public PackagesProductsSupplier packagesProductsSupplier;
         public PackageDisplayObject packageDisplayObject;
@@ -83,6 +83,7 @@ namespace DataAdministrationGUI
             return Validator.IsSelected(cbxPackage) && Validator.IsSelected(cbxProductSupplier);
         }
 
+        //validate if product-supplier is unique within package
         private bool ValidateCompositeKey(int selectedPackageId, int selectedProductsSupplierId)
         {
             bool result = false;
@@ -106,6 +107,7 @@ namespace DataAdministrationGUI
             return result;
         }
 
+        //query db to load data about packages and display it in combo boxes
         private void LoadPackagesData()
         {
             try

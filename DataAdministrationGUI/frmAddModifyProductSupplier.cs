@@ -6,11 +6,12 @@ using System.Linq;
 using System.Windows.Forms;
 using DataAdministrationData;
 
-// Author: Filip
+// Author: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyProductSupplier : Form
 	{
+        //determines if form is supposed to add or modify product supplier
 		public bool isAdd;
 		public ProductsSupplier productSupplier;
         private List<Product> products;
@@ -82,6 +83,7 @@ namespace DataAdministrationGUI
             return Validator.IsSelected(cbxProduct) && Validator.IsSelected(cbxSupplier);
         }
 
+        //checks if in database exists record with given product and supplier
         private bool ValidateCompositeKey()
         {
             bool result = false;
@@ -107,6 +109,7 @@ namespace DataAdministrationGUI
             return result;
         }
 
+        //fills comboboxes data with products and suppliers names
         private void populateComboBoxes()
         {
             try

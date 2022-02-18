@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-// written by: Filip
+// written by: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmProductMaintenance : Form
@@ -18,6 +18,7 @@ namespace DataAdministrationGUI
 			InitializeComponent();
 		}
 
+		//query products in db, save result to list and fill data grid view
         private void frmAddModifyProduct_Load(object sender, EventArgs e)
         {
 			try
@@ -121,12 +122,14 @@ namespace DataAdministrationGUI
 			}
 		}
 
+		//update list of products which is data source of data grid view
 		private void UpdateProductsList(Product updatedProduct)
 		{
 			Product productToUpdate = products.Find(p => p.ProductId.Equals(updatedProduct.ProductId));
 			productToUpdate.ProdName = updatedProduct.ProdName;
 		}
 
+		//fill grid view, update data source, adjust columns
 		private void FillDataGridView()
         {
 			dgvProductDisplay.Columns.Clear();
@@ -178,6 +181,7 @@ namespace DataAdministrationGUI
 
 		private void dgvProductDisplay_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			//modify and delete button indexes
 			const int ProductsModifyIndex = 3;
 			const int ProductsDeleteIndex = 4;
 

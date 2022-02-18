@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAdministrationData.Models
 {
+    //author: Filip Florek
     public class PackageDisplayObject
     {
         public int PackageId { get; set; }

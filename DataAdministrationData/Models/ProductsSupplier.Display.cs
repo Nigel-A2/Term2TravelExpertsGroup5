@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAdministrationData.Models
 {
+    //author: Filip Florek
     public partial class ProductsSupplier
     {
         public string GetDisplayText(string sep)

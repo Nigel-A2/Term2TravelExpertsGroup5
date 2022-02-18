@@ -3,12 +3,12 @@ using System;
 using System.Windows.Forms;
 using DataAdministrationData;
 
-// written by: Filip
+// written by: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmAddModifyProduct : Form
 	{
-
+        //determines if form is supposed to add or modify product
 		public bool isAdd;
 		public Product product;
 
@@ -17,6 +17,7 @@ namespace DataAdministrationGUI
 			InitializeComponent();
 		}
 
+        //adjust headers and product value
         private void frmAddModifyProduct_Load(object sender, EventArgs e)
         {
             if (isAdd)
@@ -55,6 +56,7 @@ namespace DataAdministrationGUI
             }
         }
 
+        //validate product name
         private bool ValidateProduct()
         {
             return Validator.IsPresent(tbxProductName) && tbxProductName.TextLength <= Product.MAX_NAME_LENGTH;

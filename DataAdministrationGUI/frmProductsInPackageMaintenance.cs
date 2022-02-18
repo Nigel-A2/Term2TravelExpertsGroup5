@@ -6,13 +6,14 @@ using System.Linq;
 using System.Windows.Forms;
 using DataAdministrationData.Models;
 
-//Author: Filip
+//Author: Filip Florek
 namespace DataAdministrationGUI
 {
 	public partial class frmProductsInPackageMaintenance : Form
 	{
+		//package display object is a result of join query which consists all important info about package, its products and suppliers
 		private List<PackageDisplayObject> productsInPackages;
-
+		//need to store currently modified object to update list(find object in list), because composite key changes
 		private PackageDisplayObject selectedPdo;
 
 		public frmProductsInPackageMaintenance()

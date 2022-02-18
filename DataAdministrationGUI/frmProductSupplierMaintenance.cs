@@ -20,6 +20,7 @@ namespace DataAdministrationGUI
 			InitializeComponent();
 		}
 
+		//send query to database, to populate product suppliers data
 		private void frmProductSupplierMaintenance_Load(object sender, EventArgs e)
 		{ 
 			try
@@ -104,6 +105,7 @@ namespace DataAdministrationGUI
 			}
 		}
 
+		//update list which is data source for grid view
 		private void UpdateProductsSuppliersList(ProductsSupplier updatedProductSupplier)
 		{
 			ProductsSupplier productSupplierToUpdate = productsSuppliers.Find(ps => ps.ProductSupplierId.Equals(updatedProductSupplier.ProductSupplierId));
@@ -141,6 +143,7 @@ namespace DataAdministrationGUI
 			}
 		}
 
+		//fills data grid view, updates source and visible columns
 		private void FillDataGridView()
 		{
 			dgvProductSupplierDisplay.Columns.Clear();
@@ -151,7 +154,6 @@ namespace DataAdministrationGUI
 			dgvProductSupplierDisplay.Columns["BookingDetails"].Visible = false;
 			dgvProductSupplierDisplay.Columns["PackagesProductsSuppliers"].Visible = false;
 
-		
 			
 			// add column for modify button
 			var modifyColumn = new DataGridViewButtonColumn()
@@ -198,6 +200,7 @@ namespace DataAdministrationGUI
 
 		private void dgvProductDisplay_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			//indexes of buttons in data grid view
 			const int ProductsModifyIndex = 7;
 			const int ProductsDeleteIndex = 8;
 
@@ -219,6 +222,7 @@ namespace DataAdministrationGUI
 
 		}
 
+		//creates form to add or modify product-supplier
 		private frmAddModifyProductSupplier CreateAddModifyForm(bool isAdd, ProductsSupplier selectedProductSupplier)
 		{
 			frmAddModifyProductSupplier form = new frmAddModifyProductSupplier();
