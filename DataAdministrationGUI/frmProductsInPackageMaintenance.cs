@@ -202,11 +202,22 @@ namespace DataAdministrationGUI
 
 			// format the columns
 			dgvProductsPackagesDisplay.EnableHeadersVisualStyles = false;
-			dgvProductsPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvProductsPackagesDisplay.Columns[2].HeaderText = "Package name:";
-			dgvProductsPackagesDisplay.Columns[3].HeaderText = "Product name:";
-			dgvProductsPackagesDisplay.Columns[4].HeaderText = "Supplier name:";
+			//dgvProductsPackagesDisplay.Columns[0].Visible = false;
 
+			//dgvProductsPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			dgvProductsPackagesDisplay.Columns[2].HeaderText = "Package name:";
+			dgvProductsPackagesDisplay.Columns[2].Width = 150;
+
+			dgvProductsPackagesDisplay.Columns[3].HeaderText = "Product name:";
+			dgvProductsPackagesDisplay.Columns[3].Width = 100;
+
+			dgvProductsPackagesDisplay.Columns[4].HeaderText = "Supplier name:"; 
+			dgvProductsPackagesDisplay.Columns[4].Width = 200;
+
+
+			// Modify / Delete buttons
+			dgvProductsPackagesDisplay.Columns[5].Width = 100;
+			dgvProductsPackagesDisplay.Columns[6].Width = 100;
 
 			// format alternating rows
 			dgvProductsPackagesDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;

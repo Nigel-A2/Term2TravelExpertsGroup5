@@ -113,6 +113,7 @@ namespace DataAdministrationGUI
 				//dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 				//dgvSuppliers.Columns[dgvSuppliers.Columns.Count - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // last column fills the remaining width
 
+				column0.Visible = false;
 				column0.HeaderText = "Supplier ID:";
 				column0.Width = 60;
 

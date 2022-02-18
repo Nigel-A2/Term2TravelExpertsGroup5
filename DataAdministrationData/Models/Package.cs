@@ -30,7 +30,7 @@ namespace DataAdministrationData.Models
         [Column(TypeName = "money")]
         public decimal PkgBasePrice { get; set; }
         [Column(TypeName = "money")]
-        public decimal? PkgAgencyCommission { get; set; }
+        public decimal PkgAgencyCommission { get; set; }
 
         [InverseProperty(nameof(Booking.Package))]
         public virtual ICollection<Booking> Bookings { get; set; }

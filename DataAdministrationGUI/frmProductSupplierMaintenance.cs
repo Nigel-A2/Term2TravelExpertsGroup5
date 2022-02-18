@@ -160,6 +160,7 @@ namespace DataAdministrationGUI
 				HeaderText = "",
 				Text = "Modify"
 			};
+
 			dgvProductSupplierDisplay.Columns.Add(modifyColumn);
 
 			// add column for delete button
@@ -173,10 +174,21 @@ namespace DataAdministrationGUI
 
 			// format the columns
 			dgvProductSupplierDisplay.EnableHeadersVisualStyles = false;
-			dgvProductSupplierDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+			//dgvProductSupplierDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 			dgvProductSupplierDisplay.Columns[0].HeaderText = "Product-supplier ID:";
+			dgvProductSupplierDisplay.Columns[0].Visible = false;
+
 			dgvProductSupplierDisplay.Columns[3].HeaderText = "Product name:";
 			dgvProductSupplierDisplay.Columns[4].HeaderText = "Supplier name:";
+
+			// standardizing column widths
+            dgvProductSupplierDisplay.Columns[3].Width = 100;
+            dgvProductSupplierDisplay.Columns[4].Width = 250;
+
+			// Modify / Delete buttons
+			dgvProductSupplierDisplay.Columns[7].Width = 100;
+			dgvProductSupplierDisplay.Columns[8].Width = 100;
+
 
 
 			// format alternating rows

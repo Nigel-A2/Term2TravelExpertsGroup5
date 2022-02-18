@@ -55,8 +55,8 @@ namespace DataAdministrationGUI
 					dtpStartDate.Value = (DateTime)CurrentPackage.PkgStartDate; // DateTime to string
 					dtpEndDate.Value = (DateTime)CurrentPackage.PkgEndDate; // DateTime to string
 					txtPkgDesc.Text = CurrentPackage.PkgDesc;
-					txtPkgBasePrice.Text = Convert.ToString(CurrentPackage.PkgBasePrice); // decimal to string
-					txtPkgAgencyCommission.Text = Convert.ToString(CurrentPackage.PkgAgencyCommission); // decimal to string
+					txtPkgBasePrice.Text = Convert.ToString(CurrentPackage.PkgBasePrice.ToString("c"));					// decimal to string -- changed to currency format
+					txtPkgAgencyCommission.Text = Convert.ToString(CurrentPackage.PkgAgencyCommission.ToString("c"));   // decimal to string
 					txtPackageID.ReadOnly = true; // can't change existing package ID
 				}
 			}
@@ -102,5 +102,9 @@ namespace DataAdministrationGUI
 				}
 			}
 		}
+
+        private void txtPkgAgencyCommission_TextChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -101,9 +101,10 @@ namespace DataAdministrationGUI
 
 				// format the columns
 				dgvPackagesDisplay.EnableHeadersVisualStyles = false;
-				dgvPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+				//dgvPackagesDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 				dgvPackagesDisplay.Columns[0].HeaderText = "Package ID:";
-				dgvPackagesDisplay.Columns[1].HeaderText = "Name:";
+                dgvPackagesDisplay.Columns[0].Visible = false;
+                dgvPackagesDisplay.Columns[1].HeaderText = "Name:";
 				dgvPackagesDisplay.Columns[2].HeaderText = "Start Date:";
 				dgvPackagesDisplay.Columns[3].HeaderText = "End Date:";
 				dgvPackagesDisplay.Columns[4].HeaderText = "Description:";
@@ -111,6 +112,16 @@ namespace DataAdministrationGUI
 				dgvPackagesDisplay.Columns[5].DefaultCellStyle.Format = "c";
 				dgvPackagesDisplay.Columns[6].HeaderText = "Agency commission:";
 				dgvPackagesDisplay.Columns[6].DefaultCellStyle.Format = "c";
+
+				dgvPackagesDisplay.Columns[1].Width = 150;
+				dgvPackagesDisplay.Columns[2].Width = 70;
+				dgvPackagesDisplay.Columns[3].Width = 70;
+				dgvPackagesDisplay.Columns[4].Width = 300;
+				dgvPackagesDisplay.Columns[5].Width = 70;
+				dgvPackagesDisplay.Columns[6].Width = 70;
+				dgvPackagesDisplay.Columns[7].Width = 100;
+				dgvPackagesDisplay.Columns[8].Width = 100;
+
 
 				// format alternating rows
 				dgvPackagesDisplay.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;

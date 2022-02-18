@@ -134,6 +134,7 @@ namespace DataAdministrationGUI
             dgvProductDisplay.DataSource = products;
 			dgvProductDisplay.Columns["ProductsSuppliers"].Visible = false;
 
+
 			// add column for modify button
 			var modifyColumn = new DataGridViewButtonColumn()
 			{
@@ -152,11 +153,22 @@ namespace DataAdministrationGUI
 			};
 			dgvProductDisplay.Columns.Add(deleteColumn);
 
-			// format the columns
-			dgvProductDisplay.EnableHeadersVisualStyles = false;
-			dgvProductDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dgvProductDisplay.Columns[0].HeaderText = "Product ID:";
+            // format the columns
+            dgvProductDisplay.EnableHeadersVisualStyles = false;
+            //dgvProductDisplay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvProductDisplay.Columns[0].HeaderText = "Product ID:";
+            dgvProductDisplay.Columns[0].Visible = false;
+
 			dgvProductDisplay.Columns[1].HeaderText = "Product name:";
+			dgvProductDisplay.Columns[1].Width = 150;
+
+
+
+			// Modify / Delete buttons
+			dgvProductDisplay.Columns[2].Width = 100;
+			dgvProductDisplay.Columns[3].Width = 100;
+			//dgvProductDisplay.Columns[4].Width = 200;
+
 
 
 			// format alternating rows
@@ -168,6 +180,7 @@ namespace DataAdministrationGUI
 		{
 			const int ProductsModifyIndex = 3;
 			const int ProductsDeleteIndex = 4;
+
 
 			if (e.ColumnIndex == ProductsModifyIndex || e.ColumnIndex == ProductsDeleteIndex)
 			{
