@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using DataAdministrationData;
+using System.Linq;
 
 // written by: Filip Florek
 namespace DataAdministrationGUI
@@ -59,7 +60,25 @@ namespace DataAdministrationGUI
         //validate product name
         private bool ValidateProduct()
         {
-            return Validator.IsPresent(tbxProductName) && tbxProductName.TextLength <= Product.MAX_NAME_LENGTH;
+            return Validator.IsPresent(tbxProductName) && tbxProductName.TextLength <= Product.MAX_NAME_LENGTH && checkIfNameIsUnique(tbxProductName.Text);
+        }
+
+        private bool checkIfNameIsUnique(string productName)
+        {
+            bool result = true;
+            using (TravelExpertsContext db = new TravelExpertsContext())
+            {
+                var uniqueNameQuery = db.Products.Where(p => p.ProdName.Equals(productName)).FirstOrDefault();
+                if(uniqueNameQuery != null)
+                {
+                    result = false;
+                }
+            }
+            if(result == false)
+            {
+                MessageBox.Show("Product name has to be unique!");
+            }
+            return result;
         }
     }
 }
